@@ -37,7 +37,19 @@ if($city){
     }
 }
 
-include 'header.php';
+// Include header with error handling
+if(file_exists('header.php')){
+    ob_start();
+    include 'header.php';
+    $header_content = ob_get_clean();
+    echo $header_content;
+} else {
+    // Minimal header if header.php doesn't exist
+    echo '<!DOCTYPE html><html><head><title>Listings</title>';
+    echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">';
+    echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">';
+    echo '</head><body>';
+}
 
 /* ================= COUNT ================= */
 
@@ -632,4 +644,14 @@ document.getElementById("filterForm").addEventListener("submit", function(e){
 });
 </script>
 
-<?php include 'footer.php'; ?>
+<?php 
+// Include footer with error handling
+if(file_exists('footer.php')){
+    ob_start();
+    include 'footer.php';
+    $footer_content = ob_get_clean();
+    echo $footer_content;
+} else {
+    echo '</body></html>';
+}
+?>
