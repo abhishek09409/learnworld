@@ -7,12 +7,9 @@ error_reporting(E_ALL);
 
 /* ================= CLEAN URL ================= */
 
-$request = $_SERVER['REQUEST_URI'];
-$path = trim(parse_url($request, PHP_URL_PATH), '/');
-$parts = explode('/', $path);
-
-$category = $parts[0] ?? '';
-$city = $parts[1] ?? '';
+// Get from URL query parameters instead of path
+$category = $_GET['category'] ?? '';
+$city = $_GET['city'] ?? '';
 
 /* ================= PAGINATION ================= */
 
