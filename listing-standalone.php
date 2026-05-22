@@ -3,11 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listings - Inscallup</title>
+    <title>Escort Listings - Inscallup</title>
+    
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Your existing site CSS - if you have any -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #f8f9fa;
+    }
+    
+    .navbar {
+        background: linear-gradient(135deg, #ff2d75, #ff5fa2);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .navbar-brand {
+        color: #fff !important;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    </style>
 </head>
 <body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">INSCALLUP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white active" href="/listing.php">Listings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/post-ad.php">Post Ad</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
 <?php
 include 'includes/config.php';
@@ -435,6 +483,44 @@ document.getElementById("state").addEventListener("change", function(){
     });
 });
 </script>
+
+<!-- Footer -->
+<footer class="bg-dark text-white mt-5 py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>About Inscallup</h5>
+                <p class="text-muted">Your trusted platform for classified listings across India.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/" class="text-muted text-decoration-none">Home</a></li>
+                    <li><a href="/listing-standalone.php" class="text-muted text-decoration-none">Browse Listings</a></li>
+                    <li><a href="/post-ad.php" class="text-muted text-decoration-none">Post Ad</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Contact</h5>
+                <p class="text-muted">
+                    <i class="fa fa-envelope"></i> support@inscallup.com<br>
+                    <i class="fa fa-phone"></i> +91 9876543210
+                </p>
+            </div>
+        </div>
+        <hr class="bg-secondary">
+        <div class="text-center text-muted">
+            <p>&copy; <?php echo date('Y'); ?> Inscallup. All rights reserved.</p>
+            <p class="small">
+                <a href="/terms.php" class="text-muted text-decoration-none">Terms of Service</a> | 
+                <a href="/privacy.php" class="text-muted text-decoration-none">Privacy Policy</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
