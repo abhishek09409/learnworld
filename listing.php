@@ -1,9 +1,8 @@
 <?php
-include 'includes/config.php';
+error_reporting(0);
+@ini_set('display_errors', 0);
 
-// Debug mode - remove after testing
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+include 'includes/config.php';
 
 /* ================= CLEAN URL ================= */
 
@@ -37,19 +36,8 @@ if($city){
     }
 }
 
-// Include header with error handling
-if(file_exists('header.php')){
-    ob_start();
-    include 'header.php';
-    $header_content = ob_get_clean();
-    echo $header_content;
-} else {
-    // Minimal header if header.php doesn't exist
-    echo '<!DOCTYPE html><html><head><title>Listings</title>';
-    echo '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">';
-    echo '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">';
-    echo '</head><body>';
-}
+// Try to include header, but don't let it break the page
+@include 'header.php';
 
 /* ================= COUNT ================= */
 
@@ -644,14 +632,4 @@ document.getElementById("filterForm").addEventListener("submit", function(e){
 });
 </script>
 
-<?php 
-// Include footer with error handling
-if(file_exists('footer.php')){
-    ob_start();
-    include 'footer.php';
-    $footer_content = ob_get_clean();
-    echo $footer_content;
-} else {
-    echo '</body></html>';
-}
-?>
+<?php @include 'footer.php'; ?>
