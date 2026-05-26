@@ -279,20 +279,55 @@ $guide_steps = [
 ];
 
 // ============== GALLERY DATA - 12 Premium Call Girl Profiles ==============
+//
+// 📸 HOW TO ADD REAL IMAGES:
+// 1. Upload your image into  →  images/girls/  folder
+// 2. Use the EXACT filename mentioned in "image" key below (e.g., "priya.jpg")
+// 3. Recommended size: 600x800 (3:4 ratio) for best look
+// 4. Supported formats: .jpg, .jpeg, .png, .webp
+// 5. If a file is not found, a beautiful placeholder will show automatically
+//
+$image_dir = "images/girls/";  // Folder path (relative to this file)
+
 $gallery = [
-    ["name" => "Priya Sharma",   "category" => "College Girl",    "age" => 22, "rating" => "4.9", "tags" => ["VIP", "GFE"],          "color" => "1a0d12", "text" => "d4af37"],
-    ["name" => "Anushka Rao",    "category" => "Housewife",       "age" => 28, "rating" => "5.0", "tags" => ["MILF", "Sensual"],     "color" => "0f0a1a", "text" => "f4d77a"],
-    ["name" => "Kavya Reddy",    "category" => "Air Hostess",     "age" => 25, "rating" => "4.8", "tags" => ["Premium", "Travel"],   "color" => "1a0d12", "text" => "ff4f7b"],
-    ["name" => "Riya Mehta",     "category" => "Fashion Model",   "age" => 24, "rating" => "5.0", "tags" => ["Elite", "Party"],      "color" => "120808", "text" => "d4af37"],
-    ["name" => "Tanya Singh",    "category" => "VIP Escort",      "age" => 26, "rating" => "4.9", "tags" => ["VIP", "Hi-Profile"],   "color" => "1a0d12", "text" => "f4d77a"],
-    ["name" => "Sneha Iyer",     "category" => "Russian",         "age" => 23, "rating" => "4.7", "tags" => ["Foreign", "Exotic"],   "color" => "0d141a", "text" => "d4af37"],
-    ["name" => "Ananya Das",     "category" => "College Girl",    "age" => 21, "rating" => "4.8", "tags" => ["Young", "Cute"],       "color" => "1a0d12", "text" => "ff4f7b"],
-    ["name" => "Pooja Verma",    "category" => "Actress",         "age" => 29, "rating" => "5.0", "tags" => ["Celebrity", "VIP"],    "color" => "120c0f", "text" => "f4d77a"],
-    ["name" => "Naina Khan",     "category" => "Hot MILF",        "age" => 32, "rating" => "4.9", "tags" => ["Mature", "Bold"],      "color" => "1a0d12", "text" => "d4af37"],
-    ["name" => "Divya Joshi",    "category" => "Independent",     "age" => 25, "rating" => "4.8", "tags" => ["Genuine", "Discreet"], "color" => "0a0a0a", "text" => "ff4f7b"],
-    ["name" => "Aarohi Sen",     "category" => "Insta Influencer","age" => 23, "rating" => "4.9", "tags" => ["Trendy", "Fun"],       "color" => "1a0d12", "text" => "f4d77a"],
-    ["name" => "Meera Kapoor",   "category" => "Premium Model",   "age" => 27, "rating" => "5.0", "tags" => ["Top-Rated", "Luxury"], "color" => "120808", "text" => "d4af37"],
+    ["name" => "Priya Sharma",   "image" => "priya.jpg",    "category" => "College Girl",    "age" => 22, "rating" => "4.9", "tags" => ["VIP", "GFE"],          "color" => "1a0d12", "text" => "d4af37"],
+    ["name" => "Anushka Rao",    "image" => "anushka.jpg",  "category" => "Housewife",       "age" => 28, "rating" => "5.0", "tags" => ["MILF", "Sensual"],     "color" => "0f0a1a", "text" => "f4d77a"],
+    ["name" => "Kavya Reddy",    "image" => "kavya.jpg",    "category" => "Air Hostess",     "age" => 25, "rating" => "4.8", "tags" => ["Premium", "Travel"],   "color" => "1a0d12", "text" => "ff4f7b"],
+    ["name" => "Riya Mehta",     "image" => "riya.jpg",     "category" => "Fashion Model",   "age" => 24, "rating" => "5.0", "tags" => ["Elite", "Party"],      "color" => "120808", "text" => "d4af37"],
+    ["name" => "Tanya Singh",    "image" => "tanya.jpg",    "category" => "VIP Escort",      "age" => 26, "rating" => "4.9", "tags" => ["VIP", "Hi-Profile"],   "color" => "1a0d12", "text" => "f4d77a"],
+    ["name" => "Sneha Iyer",     "image" => "sneha.jpg",    "category" => "Russian",         "age" => 23, "rating" => "4.7", "tags" => ["Foreign", "Exotic"],   "color" => "0d141a", "text" => "d4af37"],
+    ["name" => "Ananya Das",     "image" => "ananya.jpg",   "category" => "College Girl",    "age" => 21, "rating" => "4.8", "tags" => ["Young", "Cute"],       "color" => "1a0d12", "text" => "ff4f7b"],
+    ["name" => "Pooja Verma",    "image" => "pooja.jpg",    "category" => "Actress",         "age" => 29, "rating" => "5.0", "tags" => ["Celebrity", "VIP"],    "color" => "120c0f", "text" => "f4d77a"],
+    ["name" => "Naina Khan",     "image" => "naina.jpg",    "category" => "Hot MILF",        "age" => 32, "rating" => "4.9", "tags" => ["Mature", "Bold"],      "color" => "1a0d12", "text" => "d4af37"],
+    ["name" => "Divya Joshi",    "image" => "divya.jpg",    "category" => "Independent",     "age" => 25, "rating" => "4.8", "tags" => ["Genuine", "Discreet"], "color" => "0a0a0a", "text" => "ff4f7b"],
+    ["name" => "Aarohi Sen",     "image" => "aarohi.jpg",   "category" => "Insta Influencer","age" => 23, "rating" => "4.9", "tags" => ["Trendy", "Fun"],       "color" => "1a0d12", "text" => "f4d77a"],
+    ["name" => "Meera Kapoor",   "image" => "meera.jpg",    "category" => "Premium Model",   "age" => 27, "rating" => "5.0", "tags" => ["Top-Rated", "Luxury"], "color" => "120808", "text" => "d4af37"],
 ];
+
+/**
+ * Helper: Get image source for a profile
+ * - Returns local file path if exists (also checks .jpg/.jpeg/.png/.webp variants)
+ * - Falls back to a styled placeholder image
+ */
+function get_profile_image($girl, $image_dir) {
+    $base       = pathinfo($girl['image'], PATHINFO_FILENAME);     // e.g. "priya"
+    $extensions = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG', 'WEBP'];
+
+    // 1. Try exact filename first
+    if (file_exists(__DIR__ . '/' . $image_dir . $girl['image'])) {
+        return $image_dir . $girl['image'];
+    }
+    // 2. Try other extensions with same base name
+    foreach ($extensions as $ext) {
+        $try = $image_dir . $base . '.' . $ext;
+        if (file_exists(__DIR__ . '/' . $try)) {
+            return $try;
+        }
+    }
+    // 3. Fallback to placeholder service (matches theme colors)
+    return "https://placehold.co/600x800/{$girl['color']}/{$girl['text']}?text="
+         . urlencode($girl['name']) . "&font=playfair";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -1184,7 +1219,7 @@ $gallery = [
 
         <div class="row gallery-grid">
             <?php foreach ($gallery as $i => $girl):
-                $img = "https://placehold.co/600x800/{$girl['color']}/{$girl['text']}?text=" . urlencode($girl['name']) . "&font=playfair";
+                $img   = get_profile_image($girl, $image_dir);
                 $stars = round($girl['rating']);
             ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 reveal">
