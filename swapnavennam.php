@@ -269,14 +269,29 @@ $guide_intro = [
 
 $guide_steps = [
     "First, you need to evaluate your requirements for booking call girls in Hyderabad. You also need to have a quick look at your budget to book escort girls for sex in Hyderabad.",
-    "Now, you should visit our profile page to browse through various call girl profiles. Here, you can check call girl photos, their erotic services and even whatsapp number of call girls for sex in Hyderabad.",
-    "Once you choose a call girl for adult services in Hyderabad online, you need to go through her fees. Knowing the rates of Hyderabad call girls can help you to make things working within your budget.",
+    "Now, you should visit our profile page to browse through various call girl profiles. Here, you can check call girl photos, their erotic services and even whatsapp number of call girls for sex in Hyderabad.",    "Once you choose a call girl for adult services in Hyderabad online, you need to go through her fees. Knowing the rates of Hyderabad call girls can help you to make things working within your budget.",
     "If you notice that you can afford hiring a specific call girl for sex in Hyderabad, you need to ask for her mobile number.",
     "You can discuss your personalized sex or erotic services with your chosen call girls or escort girls in Hyderabad.",
     "Now, it's time to decide whether you want to choose an incall or outcall escort service in Hyderabad.",
     "It's better to choose a secured payment option available at Swapnavennam to make payment for call girl services in Hyderabad.",
     "Our call girls know how to provide erotic services and sex services to our clients even without unveiling their confidential information.",
     "Booking Hyderabad call girls with Swapnavennam is easier and faster than other traditional call girl suppliers in Hyderabad."
+];
+
+// ============== GALLERY DATA - 12 Premium Call Girl Profiles ==============
+$gallery = [
+    ["name" => "Priya Sharma",   "category" => "College Girl",    "age" => 22, "rating" => "4.9", "tags" => ["VIP", "GFE"],          "color" => "1a0d12", "text" => "d4af37"],
+    ["name" => "Anushka Rao",    "category" => "Housewife",       "age" => 28, "rating" => "5.0", "tags" => ["MILF", "Sensual"],     "color" => "0f0a1a", "text" => "f4d77a"],
+    ["name" => "Kavya Reddy",    "category" => "Air Hostess",     "age" => 25, "rating" => "4.8", "tags" => ["Premium", "Travel"],   "color" => "1a0d12", "text" => "ff4f7b"],
+    ["name" => "Riya Mehta",     "category" => "Fashion Model",   "age" => 24, "rating" => "5.0", "tags" => ["Elite", "Party"],      "color" => "120808", "text" => "d4af37"],
+    ["name" => "Tanya Singh",    "category" => "VIP Escort",      "age" => 26, "rating" => "4.9", "tags" => ["VIP", "Hi-Profile"],   "color" => "1a0d12", "text" => "f4d77a"],
+    ["name" => "Sneha Iyer",     "category" => "Russian",         "age" => 23, "rating" => "4.7", "tags" => ["Foreign", "Exotic"],   "color" => "0d141a", "text" => "d4af37"],
+    ["name" => "Ananya Das",     "category" => "College Girl",    "age" => 21, "rating" => "4.8", "tags" => ["Young", "Cute"],       "color" => "1a0d12", "text" => "ff4f7b"],
+    ["name" => "Pooja Verma",    "category" => "Actress",         "age" => 29, "rating" => "5.0", "tags" => ["Celebrity", "VIP"],    "color" => "120c0f", "text" => "f4d77a"],
+    ["name" => "Naina Khan",     "category" => "Hot MILF",        "age" => 32, "rating" => "4.9", "tags" => ["Mature", "Bold"],      "color" => "1a0d12", "text" => "d4af37"],
+    ["name" => "Divya Joshi",    "category" => "Independent",     "age" => 25, "rating" => "4.8", "tags" => ["Genuine", "Discreet"], "color" => "0a0a0a", "text" => "ff4f7b"],
+    ["name" => "Aarohi Sen",     "category" => "Insta Influencer","age" => 23, "rating" => "4.9", "tags" => ["Trendy", "Fun"],       "color" => "1a0d12", "text" => "f4d77a"],
+    ["name" => "Meera Kapoor",   "category" => "Premium Model",   "age" => 27, "rating" => "5.0", "tags" => ["Top-Rated", "Luxury"], "color" => "120808", "text" => "d4af37"],
 ];
 ?>
 <!DOCTYPE html>
@@ -669,6 +684,212 @@ $guide_steps = [
             font-size: 1rem;
         }
 
+        /* ============== GALLERY ============== */
+        .gallery-section {
+            padding: 100px 0;
+            background:
+                radial-gradient(ellipse at top, rgba(212,175,55,0.05), transparent 60%),
+                #060606;
+            border-top: 1px solid var(--border-soft);
+            border-bottom: 1px solid var(--border-soft);
+            position: relative;
+        }
+        .gallery-grid { margin-top: 30px; }
+
+        .profile-card {
+            position: relative;
+            background: linear-gradient(145deg, var(--bg-card), #0c0c0c);
+            border: 1px solid var(--border-soft);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(.2,.9,.3,1.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            margin-bottom: 30px;
+        }
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(135deg, var(--gold), transparent 30%, transparent 70%, var(--rose));
+            border-radius: 14px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .profile-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(212,175,55,0.25), 0 0 0 1px var(--gold);
+        }
+        .profile-card:hover::before { opacity: 0.6; }
+
+        .profile-img-wrap {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3 / 4;
+            background: #1a0d12;
+        }
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+            display: block;
+        }
+        .profile-card:hover .profile-img {
+            transform: scale(1.08) rotate(-1deg);
+        }
+
+        /* Image overlays */
+        .profile-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 45%, rgba(10,5,8,0.85) 100%);
+            pointer-events: none;
+        }
+
+        .verified-badge {
+            position: absolute;
+            top: 14px; left: 14px;
+            background: linear-gradient(135deg, #25d366, #0f8f4d);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 100px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex; align-items: center; gap: 5px;
+            box-shadow: 0 4px 14px rgba(37,211,102,0.4);
+            z-index: 2;
+        }
+        .verified-badge i { font-size: 0.85rem; }
+
+        .age-badge {
+            position: absolute;
+            top: 14px; right: 14px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: #1a0d12;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 100px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 14px rgba(212,175,55,0.45);
+            z-index: 2;
+        }
+
+        .profile-tags {
+            position: absolute;
+            bottom: 14px; left: 14px; right: 14px;
+            display: flex; gap: 6px; flex-wrap: wrap;
+            z-index: 2;
+        }
+        .profile-tags .tag {
+            background: rgba(255,79,123,0.85);
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            backdrop-filter: blur(6px);
+        }
+        .profile-tags .tag.gold {
+            background: rgba(212,175,55,0.9);
+            color: #1a0d12;
+        }
+
+        .profile-body {
+            padding: 22px;
+            position: relative;
+        }
+        .profile-name {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--gold-light);
+            margin: 0 0 4px;
+            letter-spacing: 1px;
+        }
+        .profile-cat {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+        }
+        .profile-meta {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 16px;
+            padding: 10px 0;
+            border-top: 1px dashed rgba(212,175,55,0.18);
+            border-bottom: 1px dashed rgba(212,175,55,0.18);
+        }
+        .meta-item {
+            display: flex; align-items: center; gap: 6px;
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+        .meta-item i { color: var(--gold); }
+        .rating-stars { color: var(--gold); letter-spacing: 1px; font-size: 0.78rem; }
+        .rating-stars .num { color: var(--text-light); margin-left: 4px; font-weight: 600; }
+
+        .profile-actions {
+            display: flex; gap: 8px;
+        }
+        .btn-mini {
+            flex: 1;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            border: none;
+        }
+        .btn-mini.book {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+            color: #1a0d12;
+        }
+        .btn-mini.book:hover {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(212,175,55,0.45);
+        }
+        .btn-mini.wa {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #fff;
+        }
+        .btn-mini.wa:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(37,211,102,0.45);
+        }
+
+        .gallery-footer-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px 30px;
+            background: linear-gradient(145deg, rgba(212,175,55,0.06), rgba(255,79,123,0.06));
+            border: 1px dashed var(--gold);
+            border-radius: 12px;
+        }
+        .gallery-footer-cta p {
+            color: var(--gold-light);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
         /* ============== HIGHLIGHT CTA ============== */
         .highlight-cta {
             margin: 60px 0;
@@ -892,6 +1113,7 @@ $guide_steps = [
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="#guide">Booking Guide</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -915,11 +1137,14 @@ $guide_steps = [
             roleplay, romance and unforgettable lustful experiences.
         </p>
         <div class="hero-cta-group">
-            <a href="#services" class="btn-premium">
-                <i class="bi bi-gem"></i> Explore Services
+            <a href="#gallery" class="btn-premium">
+                <i class="bi bi-images"></i> Browse Gallery
+            </a>
+            <a href="#services" class="btn-outline-premium">
+                <i class="bi bi-gem"></i> Our Services
             </a>
             <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>" class="btn-outline-premium">
-                <i class="bi bi-whatsapp"></i> Book on WhatsApp
+                <i class="bi bi-whatsapp"></i> WhatsApp
             </a>
         </div>
     </div>
@@ -941,6 +1166,82 @@ $guide_steps = [
                     <?php endforeach; ?>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============== GALLERY SECTION ============== -->
+<section class="gallery-section" id="gallery">
+    <div class="container">
+        <div class="section-title-wrap">
+            <div class="section-eyebrow">~ Meet Our Beauties ~</div>
+            <h2 class="section-main-title">Premium Call Girls Gallery</h2>
+            <div class="ornament"><i class="bi bi-gem"></i></div>
+            <p class="text-center" style="color: var(--text-muted); max-width: 700px; margin: 20px auto 0; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;">
+                Browse our exclusive collection of verified, high-profile call girls in Hyderabad &mdash; college girls, housewives, models, airhostesses, actresses &amp; VIP companions ready for your erotic fantasies.
+            </p>
+        </div>
+
+        <div class="row gallery-grid">
+            <?php foreach ($gallery as $i => $girl):
+                $img = "https://placehold.co/600x800/{$girl['color']}/{$girl['text']}?text=" . urlencode($girl['name']) . "&font=playfair";
+                $stars = round($girl['rating']);
+            ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 reveal">
+                    <div class="profile-card">
+                        <div class="profile-img-wrap">
+                            <img src="<?php echo $img; ?>" alt="<?php echo htmlspecialchars($girl['name']); ?> - <?php echo htmlspecialchars($girl['category']); ?>" class="profile-img" loading="lazy">
+                            <div class="profile-overlay"></div>
+
+                            <span class="verified-badge">
+                                <i class="bi bi-patch-check-fill"></i> Verified
+                            </span>
+                            <span class="age-badge">Age <?php echo $girl['age']; ?></span>
+
+                            <div class="profile-tags">
+                                <?php foreach ($girl['tags'] as $t):
+                                    $cls = (strtolower($t) === 'vip' || strtolower($t) === 'elite' || strtolower($t) === 'premium' || strtolower($t) === 'celebrity' || strtolower($t) === 'top-rated' || strtolower($t) === 'luxury') ? 'tag gold' : 'tag';
+                                ?>
+                                    <span class="<?php echo $cls; ?>"><?php echo htmlspecialchars($t); ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+
+                        <div class="profile-body">
+                            <h3 class="profile-name"><?php echo htmlspecialchars($girl['name']); ?></h3>
+                            <div class="profile-cat"><?php echo htmlspecialchars($girl['category']); ?></div>
+
+                            <div class="profile-meta">
+                                <span class="meta-item">
+                                    <i class="bi bi-geo-alt-fill"></i> Hyderabad
+                                </span>
+                                <span class="rating-stars">
+                                    <?php for ($s = 1; $s <= 5; $s++): ?>
+                                        <i class="bi <?php echo ($s <= $stars) ? 'bi-star-fill' : 'bi-star'; ?>"></i>
+                                    <?php endfor; ?>
+                                    <span class="num"><?php echo $girl['rating']; ?></span>
+                                </span>
+                            </div>
+
+                            <div class="profile-actions">
+                                <a href="tel:<?php echo $contact_no; ?>" class="btn-mini book">
+                                    <i class="bi bi-telephone-fill"></i> Book Now
+                                </a>
+                                <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>?text=<?php echo urlencode('Hi, I am interested in booking ' . $girl['name'] . ' (' . $girl['category'] . ')'); ?>" class="btn-mini wa">
+                                    <i class="bi bi-whatsapp"></i> Chat
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="gallery-footer-cta reveal">
+            <p>"More than 500+ verified profiles available. Find your dream companion now."</p>
+            <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>" class="btn-premium">
+                <i class="bi bi-collection-fill"></i> View All Profiles
+            </a>
         </div>
     </div>
 </section>
@@ -1052,6 +1353,7 @@ $guide_steps = [
         <div class="footer-links">
             <a href="#home">Home</a>
             <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
             <a href="#services">Services</a>
             <a href="#guide">Guide</a>
             <a href="tel:<?php echo $contact_no; ?>">Call</a>
