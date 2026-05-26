@@ -304,6 +304,30 @@ $gallery = [
     ["name" => "Meera Kapoor",   "image" => "meera.jpg",    "category" => "Premium Model",   "age" => 27, "rating" => "5.0", "tags" => ["Top-Rated", "Luxury"], "color" => "120808", "text" => "d4af37"],
 ];
 
+// ============== CONTENT BANNER IMAGES - 10 Inline Images ==============
+//
+// 📸 HOW TO ADD REAL IMAGES:
+// 1. Upload your image into  →  images/banners/  folder
+// 2. Use the EXACT filename mentioned in "file" key below (e.g., "banner-1.jpg")
+// 3. Recommended size: 1200x500 (wide banner) or 1200x700 for tall ones
+// 4. Supported formats: .jpg, .jpeg, .png, .webp
+// 5. If a file is not found, a beautiful placeholder will show automatically
+//
+$banner_dir = "images/banners/";
+
+$content_banners = [
+    ["file" => "banner-1.jpg",  "caption" => "Hottest Call Girls in Hyderabad",         "subtitle" => "Premium &middot; Verified &middot; Discreet",   "color" => "1a0d12", "text" => "d4af37", "after_section" => 2],
+    ["file" => "banner-2.jpg",  "caption" => "Genuine VIP Escort Service",              "subtitle" => "High-Profile Companions",                        "color" => "0f0a1a", "text" => "f4d77a", "after_section" => 5],
+    ["file" => "banner-3.jpg",  "caption" => "Independent Hyderabad Beauties",          "subtitle" => "No Agency &middot; Direct Booking",              "color" => "120808", "text" => "ff4f7b", "after_section" => 8],
+    ["file" => "banner-4.jpg",  "caption" => "Cheap &amp; Affordable Escorts",          "subtitle" => "Quality Without Breaking Bank",                  "color" => "1a0d12", "text" => "d4af37", "after_section" => 10],
+    ["file" => "banner-5.jpg",  "caption" => "College Girls &amp; Hot Models",          "subtitle" => "Young Beauties For You",                         "color" => "0d141a", "text" => "f4d77a", "after_section" => 14],
+    ["file" => "banner-6.jpg",  "caption" => "Sensual Housewives &amp; MILFs",          "subtitle" => "Mature &amp; Experienced",                       "color" => "1a0d12", "text" => "ff4f7b", "after_section" => 17],
+    ["file" => "banner-7.jpg",  "caption" => "Air Hostesses &amp; Models",              "subtitle" => "Premium Travel Companions",                      "color" => "120c0f", "text" => "d4af37", "after_section" => 19],
+    ["file" => "banner-8.jpg",  "caption" => "24/7 On-Demand Booking",                  "subtitle" => "Same-Day Service Available",                     "color" => "1a0d12", "text" => "f4d77a", "after_section" => 22],
+    ["file" => "banner-9.jpg",  "caption" => "Romantic GFE Experience",                 "subtitle" => "Real Girlfriend Feeling",                        "color" => "0a0a0a", "text" => "ff4f7b", "after_section" => 25],
+    ["file" => "banner-10.jpg", "caption" => "Ultimate Erotic Experience",              "subtitle" => "Book Your Dream Girl Tonight",                   "color" => "120808", "text" => "d4af37", "after_section" => 27],
+];
+
 /**
  * Helper: Get image source for a profile
  * - Returns local file path if exists (also checks .jpg/.jpeg/.png/.webp variants)
@@ -327,6 +351,36 @@ function get_profile_image($girl, $image_dir) {
     // 3. Fallback to placeholder service (matches theme colors)
     return "https://placehold.co/600x800/{$girl['color']}/{$girl['text']}?text="
          . urlencode($girl['name']) . "&font=playfair";
+}
+
+/**
+ * Helper: Get banner image source - same auto-detect logic
+ */
+function get_banner_image($banner, $banner_dir) {
+    $base       = pathinfo($banner['file'], PATHINFO_FILENAME);
+    $extensions = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG', 'WEBP'];
+
+    if (file_exists(__DIR__ . '/' . $banner_dir . $banner['file'])) {
+        return $banner_dir . $banner['file'];
+    }
+    foreach ($extensions as $ext) {
+        $try = $banner_dir . $base . '.' . $ext;
+        if (file_exists(__DIR__ . '/' . $try)) {
+            return $try;
+        }
+    }
+    // Fallback: themed wide-banner placeholder
+    return "https://placehold.co/1200x500/{$banner['color']}/{$banner['text']}?text="
+         . urlencode(strip_tags($banner['caption'])) . "&font=playfair";
+}
+
+/**
+ * Build a quick lookup: section_index => banner data
+ * So we can render banners after specific sections
+ */
+$banners_by_section = [];
+foreach ($content_banners as $b) {
+    $banners_by_section[$b['after_section']] = $b;
 }
 ?>
 <!DOCTYPE html>
@@ -925,7 +979,134 @@ function get_profile_image($girl, $image_dir) {
             margin-bottom: 20px;
         }
 
-        /* ============== HIGHLIGHT CTA ============== */
+        /* ============== INLINE CONTENT BANNERS ============== */
+        .content-banner {
+            position: relative;
+            margin: 50px 0;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+            transition: all 0.5s ease;
+            cursor: pointer;
+        }
+        .content-banner::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(135deg, var(--gold), transparent 30%, transparent 70%, var(--rose));
+            border-radius: 14px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .content-banner:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 70px rgba(212,175,55,0.3), 0 0 0 1px var(--gold);
+        }
+        .content-banner:hover::before { opacity: 0.7; }
+
+        .content-banner-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 12 / 5;
+            overflow: hidden;
+            background: #1a0d12;
+        }
+        .content-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.9s cubic-bezier(.2,.9,.3,1);
+        }
+        .content-banner:hover img { transform: scale(1.06); }
+
+        .content-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(10,5,8,0.75) 0%, rgba(10,5,8,0.35) 50%, rgba(10,5,8,0.6) 100%),
+                linear-gradient(180deg, rgba(0,0,0,0.2), rgba(10,5,8,0.5));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px 24px;
+        }
+        .content-banner-eyebrow {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            letter-spacing: 4px;
+            color: var(--gold);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .content-banner-caption {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: clamp(1.4rem, 3vw, 2.4rem);
+            letter-spacing: 2px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #fff, var(--gold-light), var(--gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(212,175,55,0.3);
+            margin-bottom: 12px;
+        }
+        .content-banner-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(1rem, 1.8vw, 1.25rem);
+            color: var(--text-light);
+            letter-spacing: 1.5px;
+            margin-bottom: 18px;
+        }
+        .content-banner-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 26px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: #1a0d12 !important;
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            box-shadow: 0 6px 20px rgba(212,175,55,0.4);
+            transition: all 0.3s;
+        }
+        .content-banner-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(212,175,55,0.6);
+            color: #000 !important;
+        }
+        .content-banner-corner {
+            position: absolute;
+            top: 18px; right: 18px;
+            background: rgba(255,79,123,0.92);
+            color: #fff;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 14px rgba(255,79,123,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .content-banner-img-wrap { aspect-ratio: 4 / 3; }
+            .content-banner-overlay { padding: 20px 16px; }
+        }
+
+
         .highlight-cta {
             margin: 60px 0;
             padding: 70px 40px;
@@ -1320,6 +1501,27 @@ function get_profile_image($girl, $image_dir) {
                                 <i class="bi bi-whatsapp"></i> Chat on WhatsApp
                             </a>
                         </div>
+                    <?php endif; ?>
+
+                    <!-- Insert inline content banners between sections -->
+                    <?php if (isset($banners_by_section[$index])):
+                        $banner    = $banners_by_section[$index];
+                        $banner_src = get_banner_image($banner, $banner_dir);
+                    ?>
+                        <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>" class="content-banner reveal" style="text-decoration:none;">
+                            <div class="content-banner-img-wrap">
+                                <img src="<?php echo $banner_src; ?>" alt="<?php echo strip_tags($banner['caption']); ?>" loading="lazy">
+                                <span class="content-banner-corner"><i class="bi bi-fire"></i> Hot</span>
+                                <div class="content-banner-overlay">
+                                    <div class="content-banner-eyebrow">~ Swapnavennam Premium ~</div>
+                                    <h3 class="content-banner-caption"><?php echo $banner['caption']; ?></h3>
+                                    <p class="content-banner-subtitle"><?php echo $banner['subtitle']; ?></p>
+                                    <span class="content-banner-cta">
+                                        <i class="bi bi-whatsapp"></i> Book Now
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
                     <?php endif; ?>
                 <?php endforeach; ?>
             </div>
