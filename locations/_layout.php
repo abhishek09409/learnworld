@@ -1,436 +1,83 @@
 <?php
 /**
  * =====================================================
- * PREMIUM AREA PAGE LAYOUT (HYDERABAD)
+ * SWAPNAVENNAM-STYLE PREMIUM LAYOUT
  * =====================================================
- * Shared header, premium CSS and helper renderer used
- * by all 12 Hyderabad area location pages.
+ * Shared layout for all 12 Hyderabad area pages.
+ * Design system: dark background, gold + rose accents,
+ * Cinzel + Cormorant Garamond + Poppins fonts.
  *
  * Each area page passes a $page array and calls
- * render_area_page($page).
+ * render_swapna_page($page).
  */
 
-if (!function_exists('render_area_page')) {
+if (!function_exists('get_profile_image')) {
+    function get_profile_image($girl, $image_dir) {
+        $base       = pathinfo($girl['image'], PATHINFO_FILENAME);
+        $extensions = ['jpg', 'jpeg', 'png', 'webp'];
 
-function render_area_page(array $p) {
-    $area       = htmlspecialchars($p['area']);
-    $areaSlug   = htmlspecialchars($p['area_slug']);
-    $tagline    = htmlspecialchars($p['tagline']);
-    $heroImg    = htmlspecialchars($p['hero_image']);
-    $metaDesc   = htmlspecialchars($p['meta_desc']);
-    $landmarks  = $p['landmarks']  ?? [];
-    $faqs       = $p['faqs']       ?? [];
-    $sections   = $p['sections']   ?? []; // [['title'=>..,'image'=>..,'body'=>..],...]
-    $gallery    = $p['gallery']    ?? [];
-    $stats      = $p['stats'] ?? [
-        ['num' => '500+',  'label' => 'Verified Profiles'],
-        ['num' => '24/7',  'label' => 'Always Available'],
-        ['num' => '100%',  'label' => 'Privacy Assured'],
-        ['num' => '4.8',   'label' => 'User Rating'],
-    ];
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title><?= $area ?> Premium Listings | Hyderabad | Inscallup</title>
-<meta name="description" content="<?= $metaDesc ?>">
-<meta name="keywords" content="<?= strtolower($area) ?> hyderabad, <?= strtolower($area) ?> listings, <?= strtolower($area) ?> classified, hyderabad <?= strtolower($area) ?>">
-<link rel="canonical" href="/locations/<?= $areaSlug ?>.php">
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root{
-  --pink:#ff2d75;
-  --pink-soft:#ff5fa2;
-  --gold:#d4af37;
-  --dark:#0f0f1a;
-  --dark-2:#1a1a2e;
-  --muted:#6c757d;
-  --bg:#fafafa;
+        if (file_exists(__DIR__ . '/../' . $image_dir . $girl['image'])) {
+            return '/' . $image_dir . $girl['image'];
+        }
+        foreach ($extensions as $ext) {
+            $try = $image_dir . $base . '.' . $ext;
+            if (file_exists(__DIR__ . '/../' . $try)) {
+                return '/' . $try;
+            }
+        }
+        return "https://placehold.co/600x800/{$girl['color']}/{$girl['text']}?text="
+             . urlencode($girl['name']) . "&font=playfair";
+    }
 }
 
-*{box-sizing:border-box}
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:#222;margin:0;line-height:1.6;
-}
-h1,h2,h3,h4{font-family:'Playfair Display',serif;letter-spacing:-.5px}
+if (!function_exists('get_banner_image')) {
+    function get_banner_image($banner, $banner_dir) {
+        $base       = pathinfo($banner['file'], PATHINFO_FILENAME);
+        $extensions = ['jpg', 'jpeg', 'png', 'webp'];
 
-/* ===== TOP BAR ===== */
-.top-nav{
-  background:linear-gradient(135deg,var(--dark),var(--dark-2));
-  padding:14px 0;position:sticky;top:0;z-index:50;
-  box-shadow:0 2px 20px rgba(0,0,0,.15);
-}
-.top-nav .brand{color:#fff;font-weight:800;font-size:22px;text-decoration:none;letter-spacing:1px}
-.top-nav .brand span{color:var(--pink)}
-.top-nav a.nav-link-c{color:#ddd;text-decoration:none;margin-left:18px;font-size:14px}
-.top-nav a.nav-link-c:hover{color:var(--pink-soft)}
-
-/* ===== HERO ===== */
-.hero{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(15,15,26,.85),rgba(255,45,117,.55));z-index:1}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.85);transform:scale(1.05)}
-.hero-inner{position:relative;z-index:2;max-width:900px;padding:60px 20px}
-.hero .eyebrow{display:inline-block;padding:6px 18px;border:1px solid rgba(255,255,255,.4);border-radius:50px;font-size:12px;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;backdrop-filter:blur(6px);background:rgba(255,255,255,.08)}
-.hero h1{font-size:clamp(38px,6vw,72px);font-weight:800;margin:0 0 14px;line-height:1.05;text-shadow:0 4px 20px rgba(0,0,0,.4)}
-.hero h1 .accent{background:linear-gradient(90deg,#ffd86f,#ff8a4c);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .tagline{font-size:18px;opacity:.9;margin-bottom:30px;font-weight:300}
-.hero-cta{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
-
-.btn-premium{
-  background:linear-gradient(135deg,var(--pink),var(--pink-soft));
-  color:#fff;padding:14px 32px;border:0;border-radius:50px;font-weight:600;
-  text-decoration:none;display:inline-flex;align-items:center;gap:8px;
-  box-shadow:0 10px 30px rgba(255,45,117,.4);transition:.3s;
-}
-.btn-premium:hover{transform:translateY(-2px);box-shadow:0 15px 40px rgba(255,45,117,.55);color:#fff}
-.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);padding:14px 32px;border-radius:50px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:.3s}
-.btn-ghost:hover{background:#fff;color:var(--dark)}
-
-/* ===== BREADCRUMB ===== */
-.breadcrumb-bar{background:#fff;border-bottom:1px solid #eee;padding:14px 0;font-size:13px}
-.breadcrumb-bar a{color:var(--pink);text-decoration:none}
-.breadcrumb-bar i{margin:0 8px;color:#bbb;font-size:10px}
-
-/* ===== STATS ===== */
-.stats{margin-top:-60px;position:relative;z-index:5}
-.stat-card{background:#fff;border-radius:16px;padding:24px 18px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.08);border:1px solid #f1f1f1;transition:.3s;height:100%}
-.stat-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.12)}
-.stat-card .num{font-family:'Playfair Display',serif;font-size:34px;font-weight:800;background:linear-gradient(135deg,var(--pink),var(--pink-soft));-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat-card .label{color:#666;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-top:6px}
-
-/* ===== SECTION BASE ===== */
-section{padding:70px 0}
-.section-eyebrow{text-transform:uppercase;letter-spacing:3px;color:var(--pink);font-size:12px;font-weight:600;margin-bottom:10px}
-.section-title{font-size:clamp(28px,3.5vw,42px);font-weight:700;margin-bottom:18px}
-.section-lead{color:#555;font-size:16px;max-width:720px;margin:0 auto 40px}
-
-/* ===== ALTERNATING IMAGE-CONTENT BLOCK ===== */
-.split-block{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-bottom:80px}
-.split-block.reverse{direction:rtl}
-.split-block.reverse > *{direction:ltr}
-.split-image{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 25px 60px rgba(0,0,0,.15)}
-.split-image img{width:100%;height:420px;object-fit:cover;display:block;transition:.6s}
-.split-image:hover img{transform:scale(1.05)}
-.split-image::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,transparent 60%,rgba(255,45,117,.15));
-  pointer-events:none;
-}
-.split-content h3{font-size:30px;color:var(--dark);margin-bottom:18px;line-height:1.2}
-.split-content .lead-pink{
-  color:var(--pink);font-size:13px;font-weight:600;letter-spacing:3px;
-  text-transform:uppercase;margin-bottom:10px;display:block;
-}
-.split-content p{color:#555;font-size:15.5px;line-height:1.85;margin-bottom:14px}
-.split-content ul{padding-left:18px;margin-top:14px}
-.split-content li{margin-bottom:8px;color:#444}
-
-/* ===== LANDMARKS ===== */
-.area-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
-.area-pill{
-  background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;
-  text-align:center;text-decoration:none;color:#333;transition:.25s;
-  display:flex;align-items:center;justify-content:center;gap:10px;font-weight:500;
-}
-.area-pill i{color:var(--pink)}
-.area-pill:hover{border-color:var(--pink);color:var(--pink);transform:translateY(-3px);box-shadow:0 10px 25px rgba(255,45,117,.15)}
-
-/* ===== GALLERY ===== */
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.gallery-grid .g-item{
-  border-radius:18px;overflow:hidden;height:240px;position:relative;
-  box-shadow:0 12px 30px rgba(0,0,0,.1);
-}
-.gallery-grid .g-item img{width:100%;height:100%;object-fit:cover;transition:.6s}
-.gallery-grid .g-item:hover img{transform:scale(1.08)}
-.gallery-grid .g-item::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.5));z-index:1;
-}
-.gallery-grid .g-item .caption{
-  position:absolute;left:18px;bottom:14px;color:#fff;font-weight:600;
-  letter-spacing:.5px;z-index:2;font-size:14px;
+        if (file_exists(__DIR__ . '/../' . $banner_dir . $banner['file'])) {
+            return '/' . $banner_dir . $banner['file'];
+        }
+        foreach ($extensions as $ext) {
+            $try = $banner_dir . $base . '.' . $ext;
+            if (file_exists(__DIR__ . '/../' . $try)) {
+                return '/' . $try;
+            }
+        }
+        return "https://placehold.co/1200x500/{$banner['color']}/{$banner['text']}?text="
+             . urlencode(strip_tags($banner['caption'])) . "&font=playfair";
+    }
 }
 
-/* ===== WHY CHOOSE ===== */
-.why-card{background:#fff;border-radius:18px;padding:30px 24px;height:100%;border:1px solid #f0f0f0;transition:.3s}
-.why-card:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(0,0,0,.08)}
-.why-icon{width:60px;height:60px;border-radius:16px;background:linear-gradient(135deg,var(--pink),var(--pink-soft));display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;margin-bottom:18px;box-shadow:0 8px 20px rgba(255,45,117,.3)}
-.why-card h4{font-size:18px;margin-bottom:8px;color:var(--dark)}
-.why-card p{color:#666;font-size:14px;margin:0}
+if (!function_exists('render_swapna_page')) {
 
-/* ===== FAQ ===== */
-.faq-item{background:#fff;border-radius:14px;border:1px solid #eee;margin-bottom:12px;overflow:hidden;transition:.3s}
-.faq-q{padding:18px 22px;font-weight:600;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:15px}
-.faq-q:hover{color:var(--pink)}
-.faq-q i{transition:.3s;color:var(--pink)}
-.faq-item.open .faq-q i{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 22px;color:#555;font-size:14.5px}
-.faq-item.open .faq-a{max-height:600px;padding:0 22px 20px}
+function render_swapna_page(array $p) {
+    // Required keys
+    $area        = $p['area'];
+    $area_slug   = $p['area_slug'];
+    $brand       = $p['brand'] ?? ($area . ' Escorts');
+    $page_title  = $p['page_title'];
+    $page_desc   = $p['page_desc'];
+    $contact_no  = $p['contact_no']  ?? '+91 00000 00000';
+    $whatsapp_no = $p['whatsapp_no'] ?? '+91 00000 00000';
+    $intro_paragraphs = $p['intro_paragraphs'] ?? [];
+    $sections    = $p['sections']    ?? [];
+    $guide_intro = $p['guide_intro'] ?? [];
+    $guide_steps = $p['guide_steps'] ?? [];
+    $gallery     = $p['gallery']     ?? [];
+    $content_banners = $p['content_banners'] ?? [];
 
-/* ===== CTA ===== */
-.cta-banner{background:linear-gradient(135deg,var(--dark),var(--dark-2));border-radius:24px;padding:60px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
-.cta-banner::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,45,117,.3),transparent 70%)}
-.cta-banner h2{position:relative;font-size:36px;margin-bottom:14px;color:#fff}
-.cta-banner p{position:relative;opacity:.85;margin-bottom:26px;font-size:16px}
+    // Image directories
+    $image_dir  = $p['image_dir']  ?? 'images/girls/';
+    $banner_dir = $p['banner_dir'] ?? 'images/banners/';
 
-/* ===== OTHER AREAS ===== */
-.area-link{display:block;background:#fff;padding:18px;border-radius:14px;text-decoration:none;color:#333;border:1px solid #eee;transition:.3s}
-.area-link:hover{border-color:var(--pink);transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,.08)}
-.area-link h5{margin:0;color:var(--dark);font-family:'Inter',sans-serif;font-weight:600;font-size:16px}
-.area-link span{color:#999;font-size:12px}
-.area-link i{color:var(--pink);float:right;margin-top:4px}
+    // Build banner lookup by section index
+    $banners_by_section = [];
+    foreach ($content_banners as $b) {
+        $banners_by_section[$b['after_section']] = $b;
+    }
 
-/* ===== FOOTER ===== */
-footer{background:linear-gradient(135deg,var(--dark),var(--dark-2));color:#bbb;padding:50px 0 25px;margin-top:60px}
-footer h6{color:#fff;margin-bottom:18px;font-family:'Inter',sans-serif;font-weight:600}
-footer a{color:#aaa;text-decoration:none;font-size:14px;display:block;padding:4px 0}
-footer a:hover{color:var(--pink-soft)}
-footer .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:30px;padding-top:20px;font-size:13px;text-align:center;color:#777}
-
-/* ===== MOBILE ===== */
-@media(max-width:992px){
-  .split-block{grid-template-columns:1fr;gap:30px;margin-bottom:60px}
-  .split-block.reverse{direction:ltr}
-  .split-image img{height:300px}
-  .gallery-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery-grid .g-item{height:180px}
-}
-@media(max-width:768px){
-  .hero{min-height:440px}
-  .hero-inner{padding:40px 16px}
-  section{padding:50px 0}
-  .cta-banner{padding:40px 22px}
-  .stats{margin-top:-40px}
-  .stat-card .num{font-size:26px}
-  .gallery-grid{grid-template-columns:1fr}
-}
-</style>
-</head>
-<body>
-
-<!-- TOP NAV -->
-<nav class="top-nav">
-  <div class="container d-flex justify-content-between align-items-center">
-    <a href="/" class="brand">INS<span>CALLUP</span></a>
-    <div class="d-none d-md-flex">
-      <a href="/" class="nav-link-c">Home</a>
-      <a href="/locations/" class="nav-link-c">Hyderabad Areas</a>
-      <a href="/listing.php" class="nav-link-c">Browse</a>
-      <a href="/post-ad.php" class="nav-link-c">Post Ad</a>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero">
-  <div class="hero-bg" style="background-image:url('<?= $heroImg ?>')"></div>
-  <div class="hero-inner">
-    <span class="eyebrow"><i class="fa-solid fa-location-dot"></i> &nbsp; Hyderabad, Telangana</span>
-    <h1>Premium Listings in <span class="accent"><?= $area ?></span></h1>
-    <p class="tagline"><?= $tagline ?></p>
-    <div class="hero-cta">
-      <a href="/listing.php?city=<?= $areaSlug ?>" class="btn-premium">
-        <i class="fa-solid fa-fire"></i> Browse <?= $area ?> Listings
-      </a>
-      <a href="#about" class="btn-ghost">
-        <i class="fa-solid fa-circle-info"></i> About <?= $area ?>
-      </a>
-    </div>
-  </div>
-</header>
-
-<!-- BREADCRUMB -->
-<div class="breadcrumb-bar">
-  <div class="container">
-    <a href="/">Home</a>
-    <i class="fa-solid fa-chevron-right"></i>
-    <a href="/locations/">Hyderabad</a>
-    <i class="fa-solid fa-chevron-right"></i>
-    <span class="text-muted"><?= $area ?></span>
-  </div>
-</div>
-
-<!-- STATS -->
-<section class="stats" style="padding:0">
-  <div class="container">
-    <div class="row g-3">
-      <?php foreach($stats as $s){ ?>
-        <div class="col-6 col-md-3">
-          <div class="stat-card">
-            <div class="num"><?= htmlspecialchars($s['num']) ?></div>
-            <div class="label"><?= htmlspecialchars($s['label']) ?></div>
-          </div>
-        </div>
-      <?php } ?>
-    </div>
-  </div>
-</section>
-
-<!-- ALTERNATING IMAGE / TEXT SECTIONS (1000+ words content) -->
-<section id="about">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow">About <?= $area ?></div>
-      <h2 class="section-title">Discover Premium <?= $area ?></h2>
-      <p class="section-lead">Hand-picked listings, verified profiles and a refined experience &mdash; tailored for the <?= $area ?> neighbourhood.</p>
-    </div>
-
-    <?php $i = 0; foreach($sections as $sec){ $reverse = ($i % 2 === 1); ?>
-      <div class="split-block <?= $reverse ? 'reverse' : '' ?>">
-        <div class="split-image">
-          <img src="<?= htmlspecialchars($sec['image']) ?>" alt="<?= htmlspecialchars($sec['title']) ?> in <?= $area ?>" loading="lazy">
-        </div>
-        <div class="split-content">
-          <span class="lead-pink"><?= htmlspecialchars($sec['eyebrow'] ?? 'Section ' . ($i+1)) ?></span>
-          <h3><?= htmlspecialchars($sec['title']) ?></h3>
-          <?= $sec['body'] ?>
-        </div>
-      </div>
-    <?php $i++; } ?>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<?php if(!empty($gallery)){ ?>
-<section style="background:linear-gradient(180deg,#fff,#fafafa);padding-top:30px">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow">Vibe</div>
-      <h2 class="section-title"><?= $area ?> at a Glance</h2>
-      <p class="section-lead">A peek into the lifestyle, landmarks and energy that define <?= $area ?>.</p>
-    </div>
-    <div class="gallery-grid">
-      <?php foreach($gallery as $g){ ?>
-        <div class="g-item">
-          <img src="<?= htmlspecialchars($g['image']) ?>" alt="<?= htmlspecialchars($g['caption']) ?>" loading="lazy">
-          <span class="caption"><?= htmlspecialchars($g['caption']) ?></span>
-        </div>
-      <?php } ?>
-    </div>
-  </div>
-</section>
-<?php } ?>
-
-<!-- LANDMARKS -->
-<?php if(!empty($landmarks)){ ?>
-<section>
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow">Coverage</div>
-      <h2 class="section-title">Landmarks Near <?= $area ?></h2>
-      <p class="section-lead">We cover all major spots and sub-localities &mdash; pick a landmark to find listings nearby.</p>
-    </div>
-    <div class="area-grid">
-      <?php foreach($landmarks as $a){ ?>
-        <a href="/listing.php?city=<?= $areaSlug ?>" class="area-pill">
-          <i class="fa-solid fa-map-pin"></i> <?= htmlspecialchars($a) ?>
-        </a>
-      <?php } ?>
-    </div>
-  </div>
-</section>
-<?php } ?>
-
-<!-- WHY CHOOSE -->
-<section style="background:#fff">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow">Why Inscallup</div>
-      <h2 class="section-title">A Premium Experience in <?= $area ?></h2>
-      <p class="section-lead">Built around trust, privacy and quality &mdash; here&rsquo;s what makes us the preferred choice.</p>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-shield-halved"></i></div>
-          <h4>100% Verified</h4>
-          <p>Every <?= $area ?> profile passes manual verification before listing.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-lock"></i></div>
-          <h4>Total Privacy</h4>
-          <p>We never share your data. Direct, encrypted contact channels only.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-clock"></i></div>
-          <h4>24/7 Available</h4>
-          <p>Active listings around the clock with quick-response advertisers.</p>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="why-card">
-          <div class="why-icon"><i class="fa-solid fa-star"></i></div>
-          <h4>Premium Quality</h4>
-          <p>Hand-picked listings &mdash; no spam, no duplicates, no fake profiles.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<?php if(!empty($faqs)){ ?>
-<section>
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow">Help Center</div>
-      <h2 class="section-title">Frequently Asked Questions</h2>
-      <p class="section-lead">Quick answers to common questions about <?= $area ?> listings.</p>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-9">
-        <?php foreach($faqs as $f){ ?>
-          <div class="faq-item">
-            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
-              <span><?= htmlspecialchars($f['q']) ?></span>
-              <i class="fa-solid fa-plus"></i>
-            </div>
-            <div class="faq-a"><?= $f['a'] ?></div>
-          </div>
-        <?php } ?>
-      </div>
-    </div>
-  </div>
-</section>
-<?php } ?>
-
-<!-- CTA -->
-<section>
-  <div class="container">
-    <div class="cta-banner">
-      <h2>Ready to Explore <?= $area ?>?</h2>
-      <p>Browse hundreds of verified listings or post your own ad &mdash; it takes less than a minute.</p>
-      <a href="/listing.php?city=<?= $areaSlug ?>" class="btn-premium">
-        <i class="fa-solid fa-arrow-right"></i> Browse <?= $area ?> Listings
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- OTHER AREAS -->
-<section style="background:#fff;padding-top:30px">
-  <div class="container">
-    <div class="text-center">
-      <div class="section-eyebrow">Explore</div>
-      <h2 class="section-title">Other Hyderabad Areas</h2>
-      <p class="section-lead">Looking elsewhere in Hyderabad? Here are our other premium area pages.</p>
-    </div>
-    <div class="row g-3">
-      <?php
-      $allAreas = [
+    $allAreas = [
         'kondapur'      => 'Kondapur',
         'hitech-city'   => 'Hitech City',
         'gachibowli'    => 'Gachibowli',
@@ -443,53 +90,871 @@ footer .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:30px;pad
         'lakdikapul'    => 'Lakdikapul',
         'masab-tank'    => 'Masab Tank',
         'panjagutta'    => 'Panjagutta',
-      ];
-      foreach($allAreas as $slug=>$name){
-        if($slug === $areaSlug) continue;
-      ?>
-        <div class="col-6 col-md-4 col-lg-3">
-          <a href="/locations/<?= $slug ?>.php" class="area-link">
-            <h5><?= $name ?> <i class="fa-solid fa-arrow-right"></i></h5>
-            <span>Hyderabad</span>
-          </a>
-        </div>
-      <?php } ?>
+    ];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo htmlspecialchars($page_title); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($page_desc); ?>">
+    <link rel="canonical" href="/locations/<?php echo $area_slug; ?>.php">
+
+    <!-- Bootstrap 5 + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark:        #0a0a0a;
+            --bg-card:        #141414;
+            --bg-card-hover:  #1c1c1c;
+            --gold:           #d4af37;
+            --gold-light:     #f4d77a;
+            --gold-dark:      #a8862a;
+            --rose:           #ff4f7b;
+            --rose-deep:      #c81d4e;
+            --text-light:     #efe7d6;
+            --text-muted:     #a89c8a;
+            --border-soft:    rgba(212, 175, 55, 0.18);
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: radial-gradient(ellipse at top, #1a0d12 0%, #0a0a0a 55%, #050505 100%);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.85;
+            overflow-x: hidden;
+        }
+        .top-bar {
+            background: linear-gradient(90deg, #000 0%, #1a0d12 50%, #000 100%);
+            border-bottom: 1px solid var(--border-soft);
+            font-size: 0.85rem; padding: 8px 0; color: var(--gold-light);
+        }
+        .top-bar a { color: var(--gold-light); text-decoration: none; transition: 0.3s; }
+        .top-bar a:hover { color: var(--rose); }
+        .navbar-premium {
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-soft);
+            padding: 18px 0; transition: all 0.4s ease;
+        }
+        .navbar-premium.scrolled { padding: 10px 0; box-shadow: 0 4px 30px rgba(0,0,0,0.6); }
+        .brand-logo {
+            font-family: 'Cinzel', serif; font-weight: 900;
+            font-size: 1.85rem; letter-spacing: 4px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent; text-decoration: none;
+        }
+        .brand-tag {
+            display: block; font-family: 'Cormorant Garamond', serif;
+            font-size: 0.7rem; font-style: italic; letter-spacing: 6px;
+            color: var(--text-muted); text-align: center; margin-top: -4px;
+        }
+        .navbar-premium .nav-link {
+            color: var(--text-light) !important; font-weight: 500; font-size: 0.92rem;
+            letter-spacing: 1px; text-transform: uppercase; margin: 0 8px; position: relative;
+        }
+        .navbar-premium .nav-link::after {
+            content: ''; position: absolute; bottom: -4px; left: 50%;
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--rose));
+            transition: all 0.3s; transform: translateX(-50%);
+        }
+        .navbar-premium .nav-link:hover::after { width: 100%; }
+        .navbar-premium .nav-link:hover { color: var(--gold) !important; }
+
+        .hero {
+            position: relative; min-height: 92vh;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; text-align: center; padding: 120px 20px 80px;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 79, 123, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.18), transparent 45%),
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 1100px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 22px; background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--gold); border-radius: 100px; color: var(--gold);
+            font-family: 'Cormorant Garamond', serif; font-style: italic;
+            font-size: 1rem; letter-spacing: 2px; margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: 'Cinzel', serif; font-weight: 900;
+            font-size: clamp(2.5rem, 6vw, 5.2rem); letter-spacing: 3px;
+            line-height: 1.1; margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, var(--gold-light) 40%, var(--gold) 70%, var(--rose) 100%);
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent; text-shadow: 0 0 60px rgba(212, 175, 55, 0.2);
+        }
+        .hero-divider {
+            width: 240px; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 30px auto; position: relative;
+        }
+        .hero-divider::before {
+            content: '\F586'; font-family: 'bootstrap-icons';
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); background: var(--bg-dark);
+            padding: 0 14px; color: var(--gold); font-size: 0.9rem;
+        }
+        .hero-tagline {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 2.5vw, 1.7rem); font-style: italic;
+            color: var(--text-light); font-weight: 400; margin-bottom: 16px;
+        }
+        .hero-sub { color: var(--text-muted); font-size: 1.05rem; max-width: 720px; margin: 0 auto 40px; }
+        .hero-cta-group { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+
+        .btn-premium {
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: #1a0d12 !important; font-weight: 600; letter-spacing: 2px;
+            text-transform: uppercase; font-size: 0.85rem; padding: 14px 36px;
+            border: none; border-radius: 4px; position: relative; overflow: hidden;
+            transition: all 0.4s; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+        }
+        .btn-premium::before {
+            content: ''; position: absolute; top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: 0.6s;
+        }
+        .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 12px 35px rgba(212,175,55,0.55); color: #000 !important; }
+        .btn-premium:hover::before { left: 100%; }
+        .btn-outline-premium {
+            background: transparent; color: var(--gold-light) !important; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem;
+            padding: 13px 34px; border: 1.5px solid var(--gold); border-radius: 4px;
+            transition: all 0.4s; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-outline-premium:hover {
+            background: var(--gold); color: #000 !important;
+            transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .intro-section { padding: 90px 0 40px; position: relative; }
+        .intro-card {
+            background: linear-gradient(145deg, var(--bg-card), #0d0d0d);
+            border: 1px solid var(--border-soft); padding: 50px;
+            border-radius: 12px; position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .intro-card::before {
+            content: ''; position: absolute;
+            top: -1px; left: -1px; right: -1px; bottom: -1px;
+            background: linear-gradient(135deg, var(--gold), transparent 30%, transparent 70%, var(--rose));
+            border-radius: 12px; z-index: -1; opacity: 0.4;
+        }
+        .intro-card p { font-size: 1.08rem; color: var(--text-light); margin-bottom: 22px; }
+        .intro-card p:last-child { margin-bottom: 0; }
+
+        .section-title-wrap { text-align: center; margin-bottom: 60px; }
+        .section-eyebrow {
+            font-family: 'Cormorant Garamond', serif; font-style: italic;
+            font-size: 1.05rem; letter-spacing: 4px; color: var(--gold);
+            text-transform: uppercase; margin-bottom: 10px;
+        }
+        .section-main-title {
+            font-family: 'Cinzel', serif; font-weight: 700;
+            font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+            color: var(--text-light); letter-spacing: 2px; margin-bottom: 18px;
+        }
+        .ornament { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--gold); margin: 0 auto 10px; }
+        .ornament::before, .ornament::after { content: ''; width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+        .ornament::after { background: linear-gradient(90deg, var(--gold), transparent); }
+
+        .content-cards { padding: 40px 0 80px; }
+        .content-card {
+            background: linear-gradient(145deg, var(--bg-card), #0c0c0c);
+            border: 1px solid var(--border-soft); border-radius: 10px;
+            padding: 40px 38px; margin-bottom: 28px; position: relative;
+            transition: all 0.4s ease; overflow: hidden;
+        }
+        .content-card::before {
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: linear-gradient(180deg, var(--gold), var(--rose));
+            transform: scaleY(0); transform-origin: top; transition: transform 0.5s;
+        }
+        .content-card:hover {
+            background: linear-gradient(145deg, var(--bg-card-hover), #111);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.6), 0 0 0 1px var(--gold);
+        }
+        .content-card:hover::before { transform: scaleY(1); }
+        .card-head {
+            display: flex; align-items: flex-start; gap: 22px;
+            margin-bottom: 22px; padding-bottom: 22px;
+            border-bottom: 1px dashed rgba(212,175,55,0.18);
+        }
+        .icon-orb {
+            flex-shrink: 0; width: 60px; height: 60px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.18), rgba(255,79,123,0.12));
+            border: 1px solid var(--gold); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem; color: var(--gold);
+            box-shadow: inset 0 0 20px rgba(212,175,55,0.15);
+        }
+        .card-title {
+            font-family: 'Cinzel', serif; font-weight: 600;
+            font-size: 1.35rem; line-height: 1.4; color: var(--gold-light);
+            margin: 0; letter-spacing: 0.5px;
+        }
+        .content-card p { color: var(--text-light); font-size: 1rem; margin-bottom: 16px; }
+        .content-card p:last-child { margin-bottom: 0; }
+        .premium-list { list-style: none; padding: 0; margin: 18px 0 0; }
+        .premium-list li {
+            position: relative; padding: 12px 0 12px 38px;
+            color: var(--text-light); border-bottom: 1px solid rgba(212,175,55,0.08);
+        }
+        .premium-list li:last-child { border-bottom: none; }
+        .premium-list li::before {
+            content: '\F270'; font-family: 'bootstrap-icons';
+            position: absolute; left: 0; top: 12px;
+            color: var(--gold); font-size: 1rem;
+        }
+
+        .gallery-section {
+            padding: 100px 0;
+            background: radial-gradient(ellipse at top, rgba(212,175,55,0.05), transparent 60%), #060606;
+            border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+            position: relative;
+        }
+        .profile-card {
+            position: relative; background: linear-gradient(145deg, var(--bg-card), #0c0c0c);
+            border: 1px solid var(--border-soft); border-radius: 14px; overflow: hidden;
+            transition: all 0.5s cubic-bezier(.2,.9,.3,1.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin-bottom: 30px;
+        }
+        .profile-card::before {
+            content: ''; position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(135deg, var(--gold), transparent 30%, transparent 70%, var(--rose));
+            border-radius: 14px; z-index: -1; opacity: 0; transition: opacity 0.4s;
+        }
+        .profile-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(212,175,55,0.25), 0 0 0 1px var(--gold);
+        }
+        .profile-card:hover::before { opacity: 0.6; }
+        .profile-img-wrap { position: relative; overflow: hidden; aspect-ratio: 3 / 4; background: #1a0d12; }
+        .profile-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; display: block; }
+        .profile-card:hover .profile-img { transform: scale(1.08) rotate(-1deg); }
+        .profile-overlay {
+            position: absolute; inset: 0; pointer-events: none;
+            background: linear-gradient(180deg, rgba(0,0,0,0.0) 0%, rgba(0,0,0,0.0) 45%, rgba(10,5,8,0.85) 100%);
+        }
+        .verified-badge {
+            position: absolute; top: 14px; left: 14px;
+            background: linear-gradient(135deg, #25d366, #0f8f4d); color: #fff;
+            font-size: 0.7rem; font-weight: 600; padding: 5px 12px;
+            border-radius: 100px; letter-spacing: 1px; text-transform: uppercase;
+            display: flex; align-items: center; gap: 5px;
+            box-shadow: 0 4px 14px rgba(37,211,102,0.4); z-index: 2;
+        }
+        .age-badge {
+            position: absolute; top: 14px; right: 14px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: #1a0d12; font-family: 'Cinzel', serif; font-weight: 700;
+            font-size: 0.85rem; padding: 6px 14px; border-radius: 100px;
+            letter-spacing: 1px; box-shadow: 0 4px 14px rgba(212,175,55,0.45); z-index: 2;
+        }
+        .profile-tags { position: absolute; bottom: 14px; left: 14px; right: 14px; display: flex; gap: 6px; flex-wrap: wrap; z-index: 2; }
+        .profile-tags .tag {
+            background: rgba(255,79,123,0.85); color: #fff; font-size: 0.68rem;
+            font-weight: 600; letter-spacing: 1px; padding: 4px 10px;
+            border-radius: 4px; text-transform: uppercase; backdrop-filter: blur(6px);
+        }
+        .profile-tags .tag.gold { background: rgba(212,175,55,0.9); color: #1a0d12; }
+        .profile-body { padding: 22px; position: relative; }
+        .profile-name { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.25rem; color: var(--gold-light); margin: 0 0 4px; letter-spacing: 1px; }
+        .profile-cat { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 14px; }
+        .profile-meta {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 16px; padding: 10px 0;
+            border-top: 1px dashed rgba(212,175,55,0.18);
+            border-bottom: 1px dashed rgba(212,175,55,0.18);
+        }
+        .meta-item { display: flex; align-items: center; gap: 6px; color: var(--text-light); font-size: 0.85rem; }
+        .meta-item i { color: var(--gold); }
+        .rating-stars { color: var(--gold); letter-spacing: 1px; font-size: 0.78rem; }
+        .rating-stars .num { color: var(--text-light); margin-left: 4px; font-weight: 600; }
+        .profile-actions { display: flex; gap: 8px; }
+        .btn-mini {
+            flex: 1; padding: 10px 12px; border-radius: 6px;
+            font-size: 0.78rem; font-weight: 600; letter-spacing: 1px;
+            text-transform: uppercase; text-decoration: none; text-align: center;
+            transition: all 0.3s; display: inline-flex; align-items: center;
+            justify-content: center; gap: 6px; border: none;
+        }
+        .btn-mini.book { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: #1a0d12; }
+        .btn-mini.book:hover { background: linear-gradient(135deg, var(--gold), var(--gold-light)); transform: translateY(-2px); box-shadow: 0 8px 18px rgba(212,175,55,0.45); }
+        .btn-mini.wa { background: linear-gradient(135deg, #25d366, #128c7e); color: #fff; }
+        .btn-mini.wa:hover { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(37,211,102,0.45); }
+        .gallery-footer-cta {
+            text-align: center; margin-top: 50px; padding: 40px 30px;
+            background: linear-gradient(145deg, rgba(212,175,55,0.06), rgba(255,79,123,0.06));
+            border: 1px dashed var(--gold); border-radius: 12px;
+        }
+        .gallery-footer-cta p { color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; margin-bottom: 20px; }
+
+        .content-banner {
+            position: relative; margin: 50px 0; border-radius: 14px; overflow: hidden;
+            border: 1px solid var(--border-soft); box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+            transition: all 0.5s ease; cursor: pointer;
+        }
+        .content-banner::before {
+            content: ''; position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(135deg, var(--gold), transparent 30%, transparent 70%, var(--rose));
+            border-radius: 14px; z-index: -1; opacity: 0; transition: opacity 0.5s;
+        }
+        .content-banner:hover { transform: translateY(-6px); box-shadow: 0 25px 70px rgba(212,175,55,0.3), 0 0 0 1px var(--gold); }
+        .content-banner:hover::before { opacity: 0.7; }
+        .content-banner-img-wrap { position: relative; width: 100%; aspect-ratio: 12 / 5; overflow: hidden; background: #1a0d12; }
+        .content-banner img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.9s cubic-bezier(.2,.9,.3,1); }
+        .content-banner:hover img { transform: scale(1.06); }
+        .content-banner-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(10,5,8,0.75) 0%, rgba(10,5,8,0.35) 50%, rgba(10,5,8,0.6) 100%),
+                linear-gradient(180deg, rgba(0,0,0,0.2), rgba(10,5,8,0.5));
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            text-align: center; padding: 30px 24px;
+        }
+        .content-banner-eyebrow { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; }
+        .content-banner-caption {
+            font-family: 'Cinzel', serif; font-weight: 700;
+            font-size: clamp(1.4rem, 3vw, 2.4rem); letter-spacing: 2px; line-height: 1.2;
+            background: linear-gradient(135deg, #fff, var(--gold-light), var(--gold));
+            -webkit-background-clip: text; background-clip: text;
+            color: transparent; text-shadow: 0 0 30px rgba(212,175,55,0.3); margin-bottom: 12px;
+        }
+        .content-banner-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1rem, 1.8vw, 1.25rem); color: var(--text-light); letter-spacing: 1.5px; margin-bottom: 18px; }
+        .content-banner-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 26px;
+            background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+            color: #1a0d12 !important; font-weight: 600; font-size: 0.78rem;
+            letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+            border-radius: 4px; box-shadow: 0 6px 20px rgba(212,175,55,0.4); transition: all 0.3s;
+        }
+        .content-banner-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(212,175,55,0.6); color: #000 !important; }
+        .content-banner-corner {
+            position: absolute; top: 18px; right: 18px;
+            background: rgba(255,79,123,0.92); color: #fff;
+            font-size: 0.68rem; font-weight: 700; letter-spacing: 2px;
+            padding: 5px 12px; border-radius: 4px; text-transform: uppercase;
+            backdrop-filter: blur(6px); box-shadow: 0 4px 14px rgba(255,79,123,0.4);
+        }
+        @media (max-width: 768px) {
+            .content-banner-img-wrap { aspect-ratio: 4 / 3; }
+            .content-banner-overlay { padding: 20px 16px; }
+        }
+
+        .highlight-cta {
+            margin: 60px 0; padding: 70px 40px;
+            background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(255,79,123,0.08)),
+                radial-gradient(circle at 50% 50%, rgba(212,175,55,0.15), transparent 70%), #0a0a0a;
+            border: 1px solid var(--gold); border-radius: 12px;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .highlight-cta h3 { font-family: 'Cinzel', serif; font-weight: 700; color: var(--gold-light); font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 16px; letter-spacing: 1.5px; }
+        .highlight-cta p { color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; font-size: 1.05rem; }
+
+        .guide-section {
+            background: linear-gradient(180deg, transparent, rgba(212,175,55,0.04), transparent), #070707;
+            padding: 100px 0;
+            border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);
+        }
+        .guide-intro {
+            background: linear-gradient(145deg, var(--bg-card), #0d0d0d);
+            border: 1px solid var(--border-soft);
+            padding: 40px; border-radius: 12px; margin-bottom: 50px;
+        }
+        .guide-intro p { color: var(--text-light); font-size: 1.05rem; margin-bottom: 18px; }
+        .guide-intro p:last-child { margin-bottom: 0; }
+        .step-list { padding: 0; list-style: none; counter-reset: step-counter; }
+        .step-list li {
+            counter-increment: step-counter; position: relative;
+            padding: 28px 30px 28px 100px; margin-bottom: 18px;
+            background: linear-gradient(145deg, var(--bg-card), #0d0d0d);
+            border: 1px solid var(--border-soft); border-radius: 10px;
+            color: var(--text-light); font-size: 1rem; transition: all 0.3s;
+        }
+        .step-list li::before {
+            content: counter(step-counter, decimal-leading-zero);
+            position: absolute; left: 25px; top: 50%; transform: translateY(-50%);
+            font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--gold), var(--rose));
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .step-list li:hover { border-color: var(--gold); transform: translateX(8px); box-shadow: -8px 0 25px rgba(212,175,55,0.15); }
+
+        .stats-row { background: #050505; padding: 60px 0; border-top: 1px solid var(--border-soft); }
+        .stat-item { text-align: center; padding: 20px; }
+        .stat-num {
+            font-family: 'Cinzel', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 900;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--rose));
+            -webkit-background-clip: text; background-clip: text; color: transparent; line-height: 1;
+        }
+        .stat-label { color: var(--text-muted); font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; margin-top: 10px; }
+
+        .other-areas-section {
+            padding: 80px 0; background: #070707;
+            border-top: 1px solid var(--border-soft);
+        }
+        .area-link-card {
+            display: block; background: linear-gradient(145deg, var(--bg-card), #0d0d0d);
+            border: 1px solid var(--border-soft); border-radius: 10px;
+            padding: 18px 20px; text-decoration: none; color: var(--gold-light);
+            transition: all 0.3s; height: 100%;
+            font-family: 'Cinzel', serif; font-weight: 600; letter-spacing: 1px;
+        }
+        .area-link-card:hover {
+            border-color: var(--gold); transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(212,175,55,0.2);
+            color: var(--gold);
+        }
+        .area-link-card i { float: right; color: var(--rose); margin-top: 4px; }
+
+        footer {
+            background: linear-gradient(180deg, #0a0a0a, #000);
+            border-top: 1px solid var(--border-soft);
+            padding: 60px 0 30px; color: var(--text-muted); text-align: center;
+        }
+        footer .brand-logo { font-size: 2rem; }
+        footer p { font-size: 0.9rem; margin: 18px 0 6px; }
+        footer .footer-links { margin: 22px 0; }
+        footer .footer-links a {
+            color: var(--gold-light); margin: 0 14px; text-decoration: none;
+            font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; transition: 0.3s;
+        }
+        footer .footer-links a:hover { color: var(--rose); }
+        .footer-divider { height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 30px 0; }
+        .copyright { font-size: 0.78rem; color: #666; letter-spacing: 1px; }
+
+        .float-cta {
+            position: fixed; right: 22px; z-index: 999;
+            width: 58px; height: 58px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.6rem; text-decoration: none;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5); transition: all 0.3s;
+        }
+        .float-cta:hover { transform: scale(1.1); color: #fff; }
+        .float-whatsapp { bottom: 95px; background: linear-gradient(135deg, #25d366, #128c7e); }
+        .float-call { bottom: 22px; background: linear-gradient(135deg, var(--rose), var(--rose-deep)); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .intro-card, .guide-intro { padding: 28px; }
+            .content-card { padding: 28px 22px; }
+            .card-head { flex-direction: column; gap: 14px; }
+            .icon-orb { width: 52px; height: 52px; font-size: 1.2rem; }
+            .card-title { font-size: 1.15rem; }
+            .step-list li { padding: 24px 22px 24px 80px; }
+            .step-list li::before { left: 18px; font-size: 1.7rem; }
+            .highlight-cta { padding: 50px 24px; }
+        }
+        .age-banner {
+            background: linear-gradient(90deg, rgba(255,79,123,0.12), rgba(212,175,55,0.12));
+            border-bottom: 1px solid var(--border-soft);
+            padding: 10px 0; text-align: center;
+            font-size: 0.82rem; color: var(--gold-light); letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- AGE BANNER -->
+<div class="age-banner">
+    <i class="bi bi-shield-lock-fill me-2"></i>
+    <strong>18+ ONLY</strong> &mdash; This website contains adult content. By continuing you confirm you are above the legal age in your region.
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div class="container d-flex justify-content-between flex-wrap">
+        <span><i class="bi bi-clock-history me-2"></i>Available 24/7 &middot; Same-Day Booking &middot; <?php echo htmlspecialchars($area); ?></span>
+        <span class="d-none d-md-block">
+            <a href="tel:<?php echo $contact_no; ?>"><i class="bi bi-telephone-fill me-1"></i> <?php echo $contact_no; ?></a>
+            <span class="mx-3">|</span>
+            <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+        </span>
     </div>
-  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-premium sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="/locations/">
+            <span class="brand-logo"><?php echo htmlspecialchars($brand); ?></span>
+            <span class="brand-tag">PREMIUM <?php echo strtoupper($area); ?> ESCORTS</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span style="color:var(--gold); font-size:1.6rem;"><i class="bi bi-list"></i></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#guide">Booking Guide</a></li>
+                <li class="nav-item"><a class="nav-link" href="/locations/">Other Areas</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="bi bi-stars"></i> ELITE &middot; LUXURY &middot; <?php echo strtoupper($area); ?>
+        </div>
+        <h1><?php echo strtoupper($area); ?></h1>
+        <div class="hero-divider"></div>
+        <p class="hero-tagline">"<?php echo htmlspecialchars($p['hero_tagline'] ?? 'Premium ' . $area . ' Escort Service for Genuine Adult Entertainment'); ?>"</p>
+        <p class="hero-sub"><?php echo $p['hero_sub'] ?? ''; ?></p>
+        <div class="hero-cta-group">
+            <a href="#gallery" class="btn-premium"><i class="bi bi-images"></i> Browse Gallery</a>
+            <a href="#services" class="btn-outline-premium"><i class="bi bi-gem"></i> Our Services</a>
+            <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>" class="btn-outline-premium">
+                <i class="bi bi-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro-section" id="about">
+    <div class="container">
+        <div class="section-title-wrap">
+            <div class="section-eyebrow">~ Welcome to <?php echo htmlspecialchars($area); ?> ~</div>
+            <h2 class="section-main-title">The Premium Choice for <?php echo htmlspecialchars($area); ?> Escorts</h2>
+            <div class="ornament"><i class="bi bi-suit-diamond-fill"></i></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="intro-card reveal">
+                    <?php foreach ($intro_paragraphs as $para): ?>
+                        <p><?php echo $para; ?></p>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<?php if (!empty($gallery)): ?>
+<section class="gallery-section" id="gallery">
+    <div class="container">
+        <div class="section-title-wrap">
+            <div class="section-eyebrow">~ Meet Our <?php echo htmlspecialchars($area); ?> Beauties ~</div>
+            <h2 class="section-main-title">Premium Call Girls Gallery</h2>
+            <div class="ornament"><i class="bi bi-gem"></i></div>
+            <p class="text-center" style="color: var(--text-muted); max-width: 700px; margin: 20px auto 0; font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;">
+                Browse our exclusive collection of verified, high-profile call girls available in <?php echo htmlspecialchars($area); ?> &mdash; college girls, housewives, models, airhostesses &amp; VIP companions ready for your erotic fantasies.
+            </p>
+        </div>
+        <div class="row">
+            <?php foreach ($gallery as $girl):
+                $img = get_profile_image($girl, $image_dir);
+                $stars = round($girl['rating']);
+            ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 reveal">
+                    <div class="profile-card">
+                        <div class="profile-img-wrap">
+                            <img src="<?php echo $img; ?>" alt="<?php echo htmlspecialchars($girl['name']); ?> - <?php echo htmlspecialchars($girl['category']); ?> in <?php echo htmlspecialchars($area); ?>" class="profile-img" loading="lazy">
+                            <div class="profile-overlay"></div>
+                            <span class="verified-badge"><i class="bi bi-patch-check-fill"></i> Verified</span>
+                            <span class="age-badge">Age <?php echo $girl['age']; ?></span>
+                            <div class="profile-tags">
+                                <?php foreach ($girl['tags'] as $t):
+                                    $cls = (in_array(strtolower($t), ['vip','elite','premium','celebrity','top-rated','luxury'])) ? 'tag gold' : 'tag';
+                                ?>
+                                    <span class="<?php echo $cls; ?>"><?php echo htmlspecialchars($t); ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                        <div class="profile-body">
+                            <h3 class="profile-name"><?php echo htmlspecialchars($girl['name']); ?></h3>
+                            <div class="profile-cat"><?php echo htmlspecialchars($girl['category']); ?></div>
+                            <div class="profile-meta">
+                                <span class="meta-item"><i class="bi bi-geo-alt-fill"></i> <?php echo htmlspecialchars($area); ?></span>
+                                <span class="rating-stars">
+                                    <?php for ($s = 1; $s <= 5; $s++): ?>
+                                        <i class="bi <?php echo ($s <= $stars) ? 'bi-star-fill' : 'bi-star'; ?>"></i>
+                                    <?php endfor; ?>
+                                    <span class="num"><?php echo $girl['rating']; ?></span>
+                                </span>
+                            </div>
+                            <div class="profile-actions">
+                                <a href="tel:<?php echo $contact_no; ?>" class="btn-mini book"><i class="bi bi-telephone-fill"></i> Book Now</a>
+                                <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>?text=<?php echo urlencode('Hi, I am interested in booking ' . $girl['name'] . ' (' . $girl['category'] . ') in ' . $area); ?>" class="btn-mini wa">
+                                    <i class="bi bi-whatsapp"></i> Chat
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <div class="gallery-footer-cta reveal">
+            <p>"More than 500+ verified profiles available in <?php echo htmlspecialchars($area); ?>. Find your dream companion now."</p>
+            <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>" class="btn-premium">
+                <i class="bi bi-collection-fill"></i> View All Profiles
+            </a>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
+<!-- CONTENT CARDS -->
+<section class="content-cards" id="services">
+    <div class="container">
+        <div class="section-title-wrap">
+            <div class="section-eyebrow">~ Our Premium <?php echo htmlspecialchars($area); ?> Offerings ~</div>
+            <h2 class="section-main-title">Genuine Escorts &amp; Call Girls in <?php echo htmlspecialchars($area); ?></h2>
+            <div class="ornament"><i class="bi bi-suit-heart-fill"></i></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <?php foreach ($sections as $index => $sec): ?>
+                    <article class="content-card reveal">
+                        <div class="card-head">
+                            <div class="icon-orb"><i class="bi <?php echo $sec['icon']; ?>"></i></div>
+                            <h3 class="card-title"><?php echo $sec['title']; ?></h3>
+                        </div>
+                        <?php foreach ($sec['content'] as $para): ?>
+                            <p><?php echo $para; ?></p>
+                        <?php endforeach; ?>
+                        <?php if (!empty($sec['list'])): ?>
+                            <ul class="premium-list">
+                                <?php foreach ($sec['list'] as $li): ?>
+                                    <li><?php echo $li; ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </article>
+
+                    <?php if ($index === floor(count($sections)/2)): ?>
+                        <div class="highlight-cta reveal">
+                            <h3><i class="bi bi-telephone-outbound-fill me-2"></i>Book Your Dream Companion in <?php echo htmlspecialchars($area); ?> Tonight</h3>
+                            <p>Browse our exclusive collection of high-profile escorts in <?php echo htmlspecialchars($area); ?> &mdash; housewives, college girls, models, airhostesses &amp; VIP companions. Instant booking, complete privacy, 24/7 service.</p>
+                            <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>" class="btn-premium">
+                                <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                            </a>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($banners_by_section[$index])):
+                        $banner = $banners_by_section[$index];
+                        $banner_src = get_banner_image($banner, $banner_dir);
+                    ?>
+                        <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>" class="content-banner reveal" style="text-decoration:none;">
+                            <div class="content-banner-img-wrap">
+                                <img src="<?php echo $banner_src; ?>" alt="<?php echo strip_tags($banner['caption']); ?>" loading="lazy">
+                                <span class="content-banner-corner"><i class="bi bi-fire"></i> Hot</span>
+                                <div class="content-banner-overlay">
+                                    <div class="content-banner-eyebrow">~ <?php echo htmlspecialchars($brand); ?> Premium ~</div>
+                                    <h3 class="content-banner-caption"><?php echo $banner['caption']; ?></h3>
+                                    <p class="content-banner-subtitle"><?php echo $banner['subtitle']; ?></p>
+                                    <span class="content-banner-cta"><i class="bi bi-whatsapp"></i> Book Now</span>
+                                </div>
+                            </div>
+                        </a>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GUIDE -->
+<?php if (!empty($guide_steps)): ?>
+<section class="guide-section" id="guide">
+    <div class="container">
+        <div class="section-title-wrap">
+            <div class="section-eyebrow">~ Step-by-Step Booking Process ~</div>
+            <h2 class="section-main-title">How to Book <?php echo htmlspecialchars($area); ?> Escort Online</h2>
+            <div class="ornament"><i class="bi bi-bookmark-star-fill"></i></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <?php if (!empty($guide_intro)): ?>
+                    <div class="guide-intro reveal">
+                        <?php foreach ($guide_intro as $gp): ?>
+                            <p><?php echo $gp; ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+                <ol class="step-list">
+                    <?php foreach ($guide_steps as $step): ?>
+                        <li class="reveal"><?php echo $step; ?></li>
+                    <?php endforeach; ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+
+<!-- STATS -->
+<section class="stats-row">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-3 stat-item"><div class="stat-num">500+</div><div class="stat-label">Verified Profiles</div></div>
+            <div class="col-6 col-md-3 stat-item"><div class="stat-num">24/7</div><div class="stat-label">Available Anytime</div></div>
+            <div class="col-6 col-md-3 stat-item"><div class="stat-num">100%</div><div class="stat-label">Privacy Assured</div></div>
+            <div class="col-6 col-md-3 stat-item"><div class="stat-num">10K+</div><div class="stat-label">Happy Clients</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- OTHER AREAS -->
+<section class="other-areas-section">
+    <div class="container">
+        <div class="section-title-wrap">
+            <div class="section-eyebrow">~ Explore Other Hyderabad Areas ~</div>
+            <h2 class="section-main-title">Premium Escorts Across Hyderabad</h2>
+            <div class="ornament"><i class="bi bi-geo-alt-fill"></i></div>
+        </div>
+        <div class="row g-3">
+            <?php foreach ($allAreas as $slug => $name):
+                if ($slug === $area_slug) continue;
+            ?>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="/locations/<?php echo $slug; ?>.php" class="area-link-card">
+                        <?php echo $name; ?> <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="row g-4">
-      <div class="col-md-4">
-        <h6>About Inscallup</h6>
-        <p style="font-size:14px">Your trusted platform for premium classified listings across India. Verified profiles, total privacy.</p>
-      </div>
-      <div class="col-md-4">
-        <h6>Top Hyderabad Areas</h6>
-        <a href="/locations/banjara-hills.php">Banjara Hills</a>
-        <a href="/locations/jubilee-hills.php">Jubilee Hills</a>
-        <a href="/locations/hitech-city.php">Hitech City</a>
-        <a href="/locations/gachibowli.php">Gachibowli</a>
-      </div>
-      <div class="col-md-4">
-        <h6>Quick Links</h6>
-        <a href="/">Home</a>
-        <a href="/listing.php">All Listings</a>
-        <a href="/post-ad.php">Post an Ad</a>
-        <a href="/locations/">All Areas</a>
-      </div>
+<footer id="contact">
+    <div class="container">
+        <a href="/locations/" class="brand-logo"><?php echo strtoupper(htmlspecialchars($brand)); ?></a>
+        <p class="brand-tag">~ Genuine <?php echo htmlspecialchars($area); ?> Escort Agency ~</p>
+        <p>Elite Call Girls &middot; High-Profile Escorts &middot; Discreet Service &middot; 24/7 Booking</p>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#services">Services</a>
+            <a href="#guide">Guide</a>
+            <a href="/locations/">Other Areas</a>
+            <a href="tel:<?php echo $contact_no; ?>">Call</a>
+            <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>">WhatsApp</a>
+        </div>
+        <div class="footer-divider"></div>
+        <p class="copyright">
+            &copy; <?php echo date('Y'); ?> <?php echo htmlspecialchars($brand); ?>. All Rights Reserved. &middot; Strictly 18+ &middot; Adults Only
+        </p>
     </div>
-    <div class="copyright">
-      &copy; <?= date('Y') ?> Inscallup. All rights reserved. | Listings are user-submitted; we are a listing service only.
-    </div>
-  </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>" class="float-cta float-whatsapp" title="Chat on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+<a href="tel:<?php echo $contact_no; ?>" class="float-cta float-call" title="Call Now"><i class="bi bi-telephone-fill"></i></a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const nav = document.querySelector('.navbar-premium');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) nav.classList.add('scrolled');
+        else nav.classList.remove('scrolled');
+    });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
 <?php
+}
+}
+
+/**
+ * Standard gallery used by all area pages.
+ * Edit names/images as needed.
+ */
+if (!function_exists('default_area_gallery')) {
+function default_area_gallery() {
+    return [
+        ["name" => "Priya Sharma",   "image" => "priya.jpg",    "category" => "College Girl",     "age" => 22, "rating" => "4.9", "tags" => ["VIP", "GFE"],          "color" => "1a0d12", "text" => "d4af37"],
+        ["name" => "Anushka Rao",    "image" => "anushka.jpg",  "category" => "Housewife",        "age" => 28, "rating" => "5.0", "tags" => ["MILF", "Sensual"],     "color" => "0f0a1a", "text" => "f4d77a"],
+        ["name" => "Kavya Reddy",    "image" => "kavya.jpg",    "category" => "Air Hostess",      "age" => 25, "rating" => "4.8", "tags" => ["Premium", "Travel"],   "color" => "1a0d12", "text" => "ff4f7b"],
+        ["name" => "Riya Mehta",     "image" => "riya.jpg",     "category" => "Fashion Model",    "age" => 24, "rating" => "5.0", "tags" => ["Elite", "Party"],      "color" => "120808", "text" => "d4af37"],
+        ["name" => "Tanya Singh",    "image" => "tanya.jpg",    "category" => "VIP Escort",       "age" => 26, "rating" => "4.9", "tags" => ["VIP", "Hi-Profile"],   "color" => "1a0d12", "text" => "f4d77a"],
+        ["name" => "Sneha Iyer",     "image" => "sneha.jpg",    "category" => "Russian",          "age" => 23, "rating" => "4.7", "tags" => ["Foreign", "Exotic"],   "color" => "0d141a", "text" => "d4af37"],
+        ["name" => "Ananya Das",     "image" => "ananya.jpg",   "category" => "College Girl",     "age" => 21, "rating" => "4.8", "tags" => ["Young", "Cute"],       "color" => "1a0d12", "text" => "ff4f7b"],
+        ["name" => "Pooja Verma",    "image" => "pooja.jpg",    "category" => "Actress",          "age" => 29, "rating" => "5.0", "tags" => ["Celebrity", "VIP"],    "color" => "120c0f", "text" => "f4d77a"],
+        ["name" => "Naina Khan",     "image" => "naina.jpg",    "category" => "Hot MILF",         "age" => 32, "rating" => "4.9", "tags" => ["Mature", "Bold"],      "color" => "1a0d12", "text" => "d4af37"],
+        ["name" => "Divya Joshi",    "image" => "divya.jpg",    "category" => "Independent",      "age" => 25, "rating" => "4.8", "tags" => ["Genuine", "Discreet"], "color" => "0a0a0a", "text" => "ff4f7b"],
+        ["name" => "Aarohi Sen",     "image" => "aarohi.jpg",   "category" => "Insta Influencer", "age" => 23, "rating" => "4.9", "tags" => ["Trendy", "Fun"],       "color" => "1a0d12", "text" => "f4d77a"],
+        ["name" => "Meera Kapoor",   "image" => "meera.jpg",    "category" => "Premium Model",    "age" => 27, "rating" => "5.0", "tags" => ["Top-Rated", "Luxury"], "color" => "120808", "text" => "d4af37"],
+    ];
+}
+}
+
+if (!function_exists('default_area_banners')) {
+function default_area_banners() {
+    return [
+        ["file" => "banner-1.jpg", "caption" => "Hottest Call Girls",          "subtitle" => "Premium &middot; Verified &middot; Discreet", "color" => "1a0d12", "text" => "d4af37", "after_section" => 1],
+        ["file" => "banner-2.jpg", "caption" => "Genuine VIP Escort Service",  "subtitle" => "High-Profile Companions",                     "color" => "0f0a1a", "text" => "f4d77a", "after_section" => 3],
+        ["file" => "banner-3.jpg", "caption" => "Independent Beauties",        "subtitle" => "No Agency &middot; Direct Booking",           "color" => "120808", "text" => "ff4f7b", "after_section" => 5],
+        ["file" => "banner-4.jpg", "caption" => "College Girls &amp; Models",  "subtitle" => "Young Beauties For You",                      "color" => "1a0d12", "text" => "d4af37", "after_section" => 7],
+        ["file" => "banner-5.jpg", "caption" => "24/7 On-Demand Booking",      "subtitle" => "Same-Day Service Available",                  "color" => "0a0a0a", "text" => "ff4f7b", "after_section" => 9],
+    ];
+}
+}
+
+if (!function_exists('default_guide_steps')) {
+function default_guide_steps($area) {
+    return [
+        "First, you need to evaluate your requirements for booking call girls in {$area}. You also need to have a quick look at your budget to book escort girls for sex in {$area}.",
+        "Now, you should visit our profile page to browse through various call girl profiles. Here, you can check call girl photos, their erotic services and even WhatsApp number of call girls for sex in {$area}.",
+        "Once you choose a call girl for adult services in {$area} online, you need to go through her fees. Knowing the rates of {$area} call girls can help you to make things working within your budget.",
+        "If you notice that you can afford hiring a specific call girl for sex in {$area}, you need to ask for her mobile number through our agency.",
+        "You can discuss your personalized sex or erotic services with your chosen call girls or escort girls in {$area}.",
+        "Now, it's time to decide whether you want to choose an incall or outcall escort service in {$area}.",
+        "It's better to choose a secured payment option to make payment for call girl services in {$area}.",
+        "Our call girls know how to provide erotic services and sex services to our clients even without unveiling their confidential information.",
+        "Booking {$area} call girls is easier and faster than other traditional call girl suppliers in the city.",
+    ];
 }
 }

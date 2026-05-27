@@ -2,68 +2,115 @@
 require __DIR__ . '/_layout.php';
 
 $page = [
-    'area'       => 'Panjagutta',
-    'area_slug'  => 'panjagutta',
-    'tagline'    => 'Hyderabad&rsquo;s shopping &amp; lifestyle pulse &mdash; central, upscale, vibrant',
-    'hero_image' => 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1600&q=80',
-    'meta_desc'  => 'Premium verified listings in Panjagutta, Hyderabad. Profiles near Hyderabad Central, Ameerpet, Begumpet, Banjara Hills border. Trusted, private, 24/7.',
-    'landmarks'  => ['Hyderabad Central','Ameerpet','Begumpet Border','Banjara Hills Road No. 1','Punjagutta Cross Roads','Koti Border','Care Hospital','Apollo Pharmacy HQ','Saptagiri Theatre','Khairatabad Approach','Punjagutta Metro','GVK One Approach'],
-    'faqs'       => [
-        ['q'=>'Is Panjagutta a good base for shopping and stays?', 'a'=>'<p>Yes. Panjagutta sits at the heart of Hyderabad&rsquo;s shopping and lifestyle belt, with Hyderabad Central, GVK One and Banjara Hills all within minutes.</p>'],
-        ['q'=>'Are listings verified?', 'a'=>'<p>Yes. Every Panjagutta listing has a manually verified phone number, screened photograph and a reviewed description before publication.</p>'],
-        ['q'=>'Does coverage extend to Ameerpet and Begumpet?', 'a'=>'<p>Yes, Ameerpet and Begumpet are part of the broader Panjagutta belt our directory covers, alongside the Banjara Hills Road No. 1 entry.</p>'],
-        ['q'=>'How responsive are advertisers in Panjagutta?', 'a'=>'<p>Most Panjagutta advertisers reply on WhatsApp within minutes given the area&rsquo;s fast-paced, central character.</p>'],
-        ['q'=>'Is contact direct or via Inscallup?', 'a'=>'<p>Always direct. Phone, WhatsApp and Telegram all connect you straight with the advertiser. Inscallup never inserts itself into the conversation.</p>'],
+    'area'        => 'Panjagutta',
+    'area_slug'   => 'panjagutta',
+    'brand'       => 'Panjagutta Escorts',
+    'page_title'  => 'Panjagutta Escort Service | Premium Call Girls in Panjagutta Hyderabad',
+    'page_desc'   => 'Panjagutta escort service offering elite call girls, housewives, college girls and VIP companions in Panjagutta Hyderabad. 24/7 booking, verified profiles.',
+    'contact_no'  => '+91 00000 00000',
+    'whatsapp_no' => '+91 00000 00000',
+    'hero_tagline'=> 'Panjagutta Premium Call Girls &mdash; Hyderabad&rsquo;s Shopping &amp; Lifestyle Pulse',
+    'hero_sub'    => 'Panjagutta&rsquo;s most trusted escort agency &mdash; offering high-profile call girls, independent escorts, college girls, airhostesses, models &amp; VIP companions for sex and erotic experiences at the lifestyle crossroads of Hyderabad.',
+
+    'intro_paragraphs' => [
+        "Panjagutta Escorts is the trusted escort agency in Panjagutta Hyderabad to book call girls for sex. Whether you want to book a Panjagutta escort for erotic romance or roleplay, we have plenty of high-profile call girls across the iconic Punjagutta Cross Roads, Hyderabad Central, GVK One and Banjara Hills Road No. 1 entry.",
+        "Do you want to spend time with high-profile escort girls in Panjagutta? Avail premium escort services from this genuine call girl provider near Care Hospital, Saptagiri Theatre, Ameerpet, Begumpet and Khairatabad.",
     ],
-    'gallery' => [
-        ['image'=>'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&q=80','caption'=>'Shopping District'],
-        ['image'=>'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=900&q=80','caption'=>'Cross Roads'],
-        ['image'=>'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80','caption'=>'Premium Restaurants'],
-        ['image'=>'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80','caption'=>'Boutique Stays'],
-        ['image'=>'https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=900&q=80','caption'=>'Lounge Nights'],
-        ['image'=>'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=80','caption'=>'Central Buzz'],
-    ],
+
     'sections' => [
-        [
-            'eyebrow' => 'Overview',
-            'title'   => 'Panjagutta &mdash; Hyderabad&rsquo;s Lifestyle Pulse',
-            'image'   => 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80',
-            'body'    => '
-<p>Panjagutta sits at the lively crossroads of central Hyderabad &mdash; a buzzing meeting point of <strong>Banjara Hills</strong>, <strong>Ameerpet</strong>, <strong>Begumpet</strong> and <strong>Khairatabad</strong>. Anchored by the iconic <strong>Punjagutta Cross Roads</strong>, the area is home to flagship shopping destinations like <strong>Hyderabad Central</strong>, leading hospitals such as <strong>Care</strong>, and a continuous stream of restaurants, cafes and boutique hotels that keep the neighbourhood alive at every hour of the day.</p>
-<p>Our Panjagutta listings have been built to mirror this constant pulse. The verified profiles you find here are aligned with the area&rsquo;s diverse, fast-moving audience &mdash; shoppers from out of town, business travellers staying along the Begumpet-Banjara Hills corridor, and locals who prefer central, well-connected hospitality. Whether you are exploring the shops at Hyderabad Central or staying near <strong>GVK One</strong>, our directory is your simplest entry point.</p>',
-        ],
-        [
-            'eyebrow' => 'Why Panjagutta',
-            'title'   => 'Where Hyderabad Comes Together',
-            'image'   => 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=1200&q=80',
-            'body'    => '
-<p>Panjagutta&rsquo;s biggest strength is the way it pulls Hyderabad&rsquo;s most popular districts together at one point. The Banjara Hills approach starts here, the Begumpet stretch ends here, the Ameerpet metro line passes through, and the Khairatabad junction is just a few minutes away. The neighbourhood acts as the city&rsquo;s lifestyle pulse &mdash; always connecting, always moving.</p>
-<p>This central character translates into a uniquely well-distributed catalogue on our listings page. Verified Panjagutta advertisers naturally cover the entire surrounding belt, which means a single area filter pulls up profiles you can meet across <strong>Banjara Hills Road No. 1</strong>, <strong>Begumpet</strong> and <strong>Ameerpet</strong>. No long commutes, no logistical confusion, no compromise.</p>',
-        ],
-        [
-            'eyebrow' => 'The Listings',
-            'title'   => 'Verified, Vibrant, Reliable',
-            'image'   => 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80',
-            'body'    => '
-<p>Our Panjagutta directory is built around quality and pace &mdash; matching the energy of the neighbourhood it serves. Every profile passes through manual verification before publication: phone numbers checked, photographs scanned for authenticity, descriptions reviewed for clarity. Inactive listings are removed within 48 hours, so the directory you scroll is genuinely current.</p>
-<p>Coverage spans the entire Panjagutta footprint &mdash; from the lanes around the <strong>Cross Roads</strong> and <strong>Saptagiri Theatre</strong> to the upscale stretches approaching <strong>Banjara Hills</strong> and the lifestyle belts near <strong>Hyderabad Central</strong> and <strong>GVK One</strong>. Each listing card shows a clean photograph, a thoughtful description, the advertiser&rsquo;s age, and a direct contact channel &mdash; phone, WhatsApp or Telegram. The conversation is always direct.</p>
-<ul>
-  <li>Manually moderated, current catalogue</li>
-  <li>Coverage from Cross Roads to Banjara Road No. 1</li>
-  <li>Aligned with shopping and central hospitality</li>
-  <li>Direct contact &mdash; phone, WhatsApp or Telegram</li>
-</ul>',
-        ],
-        [
-            'eyebrow' => 'Lifestyle',
-            'title'   => 'A Vibrant Central Evening',
-            'image'   => 'https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=1200&q=80',
-            'body'    => '
-<p>Panjagutta after sundown is one of the liveliest pockets of central Hyderabad. The lights of Hyderabad Central and GVK One spill onto the main road, the cafes near the Cross Roads are full, and the restaurants along the Banjara Hills approach run late into the night. The crowd here is genuinely diverse &mdash; a healthy mix of locals, shoppers, business travellers and lifestyle visitors that gives the area an energetic, welcoming feel.</p>
-<p>For visitors planning a Panjagutta evening, our recommendation is straightforward: filter the listings page to this area, shortlist two or three profiles whose tone matches your preferences, and reach out via WhatsApp for the fastest reply. Pair the meeting with a dinner at one of the area&rsquo;s celebrated restaurants and an evening of strolling around the Cross Roads belt for a perfectly balanced central-Hyderabad night.</p>
-<p>Inscallup&rsquo;s Panjagutta page is built to make all of this effortless. Verified catalogue, premium design, total privacy &mdash; the lifestyle pulse of Hyderabad as it deserves to be discovered.</p>',
-        ],
+        ["title" => "Panjagutta Escort Service - Vibrant Central Hyderabad Call Girls",
+         "icon" => "bi-gem",
+         "content" => [
+            "You would always like to add vibrant excitement to your central Hyderabad shopping trip. Our Panjagutta escort service brings premium call girl services at Hyderabad&rsquo;s lifestyle pulse. Whether college girls, air hostesses or models for call girl services in Panjagutta, you'll find what fits your taste.",
+            "We supply call girls in Panjagutta aligned with the area&rsquo;s diverse, fast-moving audience &mdash; shoppers, business travellers, locals seeking discreet evening companionship at central Hyderabad&rsquo;s liveliest junction.",
+         ]],
+        ["title" => "Is Our Panjagutta Escort Agency Genuine and Safe?",
+         "icon" => "bi-patch-check-fill",
+         "content" => [
+            "Confirm authenticity before booking. The simple answer is YES &mdash; we are known for safety and privacy commitment in Panjagutta.",
+            "We don't share confidential client information. Every Panjagutta call girl is manually verified, and your data stays strictly between you and the chosen companion.",
+         ]],
+        ["title" => "Why Panjagutta Is Hyderabad&rsquo;s Lifestyle Pulse",
+         "icon" => "bi-fire",
+         "content" => [
+            "Panjagutta sits at the lively crossroads of Banjara Hills, Ameerpet, Begumpet and Khairatabad. Anchored by Hyderabad Central, GVK One and the iconic Punjagutta Cross Roads, the area is alive at every hour.",
+            "From quick incall sessions to long romantic outcall dates, our Panjagutta call girls are positioned for the area&rsquo;s constant lifestyle pulse &mdash; available across Banjara Road No. 1 entry to the Begumpet border.",
+         ]],
+        ["title" => "How to Recognize the Best Escort Service in Panjagutta",
+         "icon" => "bi-search-heart",
+         "content" => [
+            "Many call girl suppliers exist &mdash; learn how to recognize the best Panjagutta escort service.",
+         ],
+         "list" => [
+            "Choose a Panjagutta agency with verified call girls and real photos.",
+            "Ensure full coverage &mdash; Cross Roads, Banjara Road No. 1, Ameerpet, Begumpet.",
+            "Check photos, age, category and rating before hiring.",
+            "Genuine Panjagutta agencies share direct WhatsApp numbers.",
+            "Look for on-demand &amp; instant 24/7 booking.",
+         ]],
+        ["title" => "Independent Panjagutta Call Girls vs Agency Escorts",
+         "icon" => "bi-person-heart",
+         "content" => [
+            "Searching for independent escort service in Panjagutta? We provide both &mdash; independent call girls and agency-based VIP companions.",
+            "Contact us online or by phone for the best Panjagutta call girls for sex, companionship, roleplay or full-night sessions.",
+         ]],
+        ["title" => "Cheap &amp; Affordable Panjagutta Escort Service",
+         "icon" => "bi-cash-coin",
+         "content" => [
+            "Want a Panjagutta call girl on a budget? Choose a cheap but quality option in Panjagutta.",
+            "We offer cheap Panjagutta escort service without compromising on standard. Save money, still book top-notch Panjagutta call girls.",
+         ]],
+        ["title" => "Why Choose Our Panjagutta Call Girl Service",
+         "icon" => "bi-stars",
+         "content" => [
+            "Our Panjagutta agency helps central-Hyderabad men release suppressed emotions at the city&rsquo;s liveliest junction. The Panjagutta escort experience is vibrant, comfortable and erotic.",
+            "Our Panjagutta call girls clear emotional, physical and psychological burden right at the heart of Hyderabad&rsquo;s lifestyle pulse.",
+         ]],
+        ["title" => "VIP, Hi-Profile &amp; College Call Girls in Panjagutta",
+         "icon" => "bi-crown-fill",
+         "content" => [
+            "Want a private party companion or a discreet erotic evening at GVK One? VIP escorts in Panjagutta are ready to book online with instant booking.",
+            "Our Panjagutta catalogue features housewives, MILFs, college girls, airhostesses, models, actresses, Russian beauties and Insta influencers.",
+         ]],
+        ["title" => "How to Contact Female Escorts in Panjagutta",
+         "icon" => "bi-telephone-plus",
+         "content" => [
+            "Demand for female escorts in Panjagutta is high. Here is how to contact a Panjagutta call girl.",
+         ],
+         "list" => [
+            "Visit our Panjagutta call girls profile page above.",
+            "Browse profiles of verified Panjagutta call girls.",
+            "Choose one or multiple based on your needs.",
+            "Book for incall or outcall in central hotels.",
+            "Pay through our secured payment options.",
+         ]],
+        ["title" => "24/7 On-Demand Panjagutta Escort Booking",
+         "icon" => "bi-clock-history",
+         "content" => [
+            "Our Panjagutta escort agency offers 24/7 booking. Book call girls anytime &mdash; midnight, early morning, weekend, weekday.",
+            "Same-day fast connect with Panjagutta call girls is our signature.",
+         ]],
+        ["title" => "Genuine Companionship &amp; GFE in Panjagutta",
+         "icon" => "bi-suit-heart-fill",
+         "content" => [
+            "Many men want emotional connection alongside sex. Book a Panjagutta call girl to play your girlfriend for emotional satisfaction.",
+            "Our Panjagutta escorts know roleplay and GFE. Book for companionship, romantic dates or wild adult enjoyment.",
+         ]],
+        ["title" => "The Ultimate Panjagutta Erotic Experience",
+         "icon" => "bi-rocket-takeoff-fill",
+         "content" => [
+            "Want to enter the ultimate state of fun? Book Panjagutta call girls or escort girls with us &mdash; the lifestyle pulse of Hyderabad.",
+            "Our Panjagutta call girls help unveil a world of ultimate erotic experience. Book your Panjagutta dream girl tonight.",
+         ]],
     ],
+
+    'guide_intro' => [
+        "Different categories of Panjagutta call girls exist for booking hot girls for real fun. Search for an escort service in Panjagutta that supplies hot call girls for sex.",
+        "Doubts about booking a Panjagutta escort online? Follow the guide below to book call girls for sex in Panjagutta.",
+    ],
+    'guide_steps' => default_guide_steps('Panjagutta'),
+    'gallery'         => default_area_gallery(),
+    'content_banners' => default_area_banners(),
 ];
 
-render_area_page($page);
+render_swapna_page($page);

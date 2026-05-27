@@ -2,68 +2,115 @@
 require __DIR__ . '/_layout.php';
 
 $page = [
-    'area'       => 'Madhapur',
-    'area_slug'  => 'madhapur',
-    'tagline'    => 'The original IT hub of Hyderabad &mdash; where Cyberabad first took shape',
-    'hero_image' => 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1600&q=80',
-    'meta_desc'  => 'Premium verified listings in Madhapur, Hyderabad. Profiles near Hitech City, Shilparamam, Ayyappa Society and Image Gardens. Trusted, private, 24/7.',
-    'landmarks'  => ['Shilparamam','Hitech City Junction','Ayyappa Society','Image Gardens','Madhapur PS','Cyber Towers Border','Inorbit Mall','Durgam Cheruvu','Kavuri Hills','Image Hospital','Image Garden Road','Yashoda Hospital'],
-    'faqs'       => [
-        ['q'=>'Is Madhapur the same as Hitech City?', 'a'=>'<p>Madhapur is the larger neighbourhood in which the Hitech City IT hub sits. Our directory covers both seamlessly &mdash; the area filter pulls in profiles across the entire belt.</p>'],
-        ['q'=>'Are there listings near Ayyappa Society?', 'a'=>'<p>Yes, Ayyappa Society is one of the most active sub-localities of Madhapur in our catalogue, with listings covering the surrounding lanes and main road.</p>'],
-        ['q'=>'How fresh is the Madhapur catalogue?', 'a'=>'<p>New verified profiles are added every day, and inactive ones are removed within 48 hours so you always see a current view.</p>'],
-        ['q'=>'Is contact direct or routed?', 'a'=>'<p>Always direct. When you tap a phone, WhatsApp or Telegram icon, you connect straight with the advertiser. We do not insert middlemen.</p>'],
-        ['q'=>'Are the listings safe to browse?', 'a'=>'<p>Yes. Madhapur listings are manually verified and moderated &mdash; phones, photos and descriptions are all reviewed before publication.</p>'],
+    'area'        => 'Madhapur',
+    'area_slug'   => 'madhapur',
+    'brand'       => 'Madhapur Escorts',
+    'page_title'  => 'Madhapur Escort Service | Premium Call Girls in Madhapur Hyderabad',
+    'page_desc'   => 'Madhapur escort service offering elite call girls, housewives, college girls and VIP companions in Madhapur Hyderabad. 24/7 booking, verified profiles, total privacy.',
+    'contact_no'  => '+91 00000 00000',
+    'whatsapp_no' => '+91 00000 00000',
+    'hero_tagline'=> 'Madhapur Premium Call Girls &mdash; The Original IT Hub of Hyderabad',
+    'hero_sub'    => 'Madhapur&rsquo;s most trusted escort agency &mdash; offering high-profile call girls, independent escorts, college girls, airhostesses, models &amp; VIP companions for sex, roleplay and erotic experiences in Hyderabad&rsquo;s original Cyberabad belt.',
+
+    'intro_paragraphs' => [
+        "Madhapur Escorts is the trusted escort agency in Madhapur Hyderabad to book call girls in Madhapur for sex. Whether you want to book a Madhapur escort for erotic romance or roleplay, we have plenty of high-profile call girls to choose from across the legendary IT hub stretching from Shilparamam to Ayyappa Society.",
+        "Do you want to spend time with high-profile escort girls in Madhapur? Avail premium escort services from this genuine call girl provider near Cyber Towers, Image Hospital, Durgam Cheruvu, Kavuri Hills and Image Gardens. Built for the IT professional and lifestyle visitor crowd.",
     ],
-    'gallery' => [
-        ['image'=>'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=900&q=80','caption'=>'Cyber Skyline'],
-        ['image'=>'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80','caption'=>'IT Towers'],
-        ['image'=>'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&q=80','caption'=>'Lounge Culture'],
-        ['image'=>'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80','caption'=>'Boutique Hotels'],
-        ['image'=>'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80','caption'=>'Premium Cafes'],
-        ['image'=>'https://images.unsplash.com/photo-1578922746465-3a80a228f223?w=900&q=80','caption'=>'Designer Stays'],
-    ],
+
     'sections' => [
-        [
-            'eyebrow' => 'Overview',
-            'title'   => 'Madhapur &mdash; Where Cyberabad Was Born',
-            'image'   => 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=80',
-            'body'    => '
-<p>Madhapur is the original spark of the Cyberabad story &mdash; the neighbourhood that hosted Hyderabad&rsquo;s first major IT towers and grew into the larger umbrella that now contains <strong>Hitech City</strong>, <strong>Mindspace</strong> and the surrounding office parks. Despite all the development around it, Madhapur has retained its own distinct character: a rich blend of old residential pockets like <strong>Ayyappa Society</strong> and <strong>Image Gardens</strong> alongside cutting-edge corporate addresses and a steadily growing premium hospitality scene.</p>
-<p>Our Madhapur listings reflect that hybrid character. The verified profiles you find here are equally comfortable with the inner residential lanes and with the high-rise corporate hospitality belt. Whether you are based in a serviced apartment near <strong>Shilparamam</strong> or a boutique hotel along the <strong>Durgam Cheruvu</strong> stretch, our directory is the simplest way to discover quality listings nearby.</p>',
-        ],
-        [
-            'eyebrow' => 'Why Madhapur',
-            'title'   => 'The Best of Old and New Hyderabad',
-            'image'   => 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=1200&q=80',
-            'body'    => '
-<p>Few Hyderabad neighbourhoods balance heritage and modernity as gracefully as Madhapur. The <strong>Shilparamam</strong> craft village preserves the Telangana cultural heartbeat in the middle of the IT corridor. The <strong>Durgam Cheruvu</strong> lake, with its iconic cable bridge, gives the area a postcard-style waterfront identity. At the same time, the office towers of Hitech City rise just minutes away, drawing in lakhs of professionals every single day.</p>
-<p>This unique mix gives Madhapur an unusually wide audience. Our listings are designed to serve all of it &mdash; from the corporate professional staying briefly between flights at the airport, to the lifestyle visitor exploring the food, lake and lounge scene around <strong>Inorbit Mall</strong> and <strong>Kavuri Hills</strong>.</p>',
-        ],
-        [
-            'eyebrow' => 'The Listings',
-            'title'   => 'Verified, Curated, Always Fresh',
-            'image'   => 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80',
-            'body'    => '
-<p>Our Madhapur catalogue has been carefully built around quality and freshness. Every profile is reviewed manually before going live &mdash; phone numbers verified, photographs scanned, descriptions checked. Inactive or outdated listings are removed within 48 hours so the directory you scroll through is always current.</p>
-<p>The Madhapur footprint we cover stretches from the <strong>Hitech City junction</strong> down to <strong>Ayyappa Society</strong> and <strong>Image Gardens</strong>, and across the lanes near <strong>Image Hospital</strong> and <strong>Yashoda Hospital</strong>. Each listing card shows a clear photograph, a meaningful description, the advertiser&rsquo;s age, and at least one direct contact channel. The connection happens directly between you and the advertiser &mdash; nothing is logged, shared or routed by Inscallup.</p>
-<ul>
-  <li>Manually moderated, current-only catalogue</li>
-  <li>Coverage from Hitech junction to Ayyappa Society</li>
-  <li>Direct contact &mdash; phone, WhatsApp or Telegram</li>
-  <li>Mobile-first browsing for fast discovery</li>
-</ul>',
-        ],
-        [
-            'eyebrow' => 'Lifestyle',
-            'title'   => 'A Modern Evening in Madhapur',
-            'image'   => 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80',
-            'body'    => '
-<p>Madhapur shines after sundown. The area is filled with lounges, multi-cuisine restaurants, microbreweries and rooftop venues that draw both the local IT crowd and a steady stream of out-of-town visitors. Whether you are stepping out from a long workday at <strong>Cyber Towers</strong>, ending a lakeside walk at <strong>Durgam Cheruvu</strong>, or simply exploring Hyderabad for the first time, the neighbourhood delivers a relaxed yet refined evening atmosphere.</p>
-<p>Our recommendation for the perfect Madhapur night is straightforward: filter the listings to this area, shortlist two or three profiles whose presentation matches your preferences, and reach out via WhatsApp for an instant reply. From there, choose a stay near <strong>Inorbit Mall</strong> or in the inner residential lanes, and enjoy a Madhapur evening at its most authentic.</p>
-<p>Inscallup&rsquo;s Madhapur page is the cleanest, fastest and most trusted entry point to it all. Premium design, verified catalogue, total privacy &mdash; exactly the way the area deserves to be experienced.</p>',
-        ],
+        ["title" => "Madhapur Escort Service - Genuine Call Girls in Cyberabad&rsquo;s Heart",
+         "icon" => "bi-gem",
+         "content" => [
+            "You always want to escape the boring corporate routine in Madhapur. For this, our Madhapur escort service comes with premium call girl services right in the IT hub. Whether you want hot college girls or air hostesses for call girl services in Madhapur, you'll find what you need.",
+            "We supply call girls in Madhapur to make your life more exciting and lustful. Whether roleplay or genuine girlfriend feeling, our Madhapur call girls are a discreet, dependable option after long IT shifts.",
+         ]],
+        ["title" => "Is Our Madhapur Escort Agency Genuine and Safe?",
+         "icon" => "bi-patch-check-fill",
+         "content" => [
+            "Confirm authenticity before booking in Madhapur. The simple answer &mdash; YES, we are known for safety and privacy commitment in Madhapur.",
+            "We don't share confidential information of our IT clients with anyone. Every Madhapur call girl is manually verified, and your data stays strictly between you and the chosen companion.",
+         ]],
+        ["title" => "Why Madhapur Is a Top Escort Hub in Hyderabad",
+         "icon" => "bi-fire",
+         "content" => [
+            "Madhapur is where Cyberabad was born. Today it remains one of the busiest escort hubs in Hyderabad, with active listings around Shilparamam, Hitech City junction, Ayyappa Society and the Durgam Cheruvu lakefront.",
+            "From quick incall sessions in serviced apartments to long romantic outcall dates near Kavuri Hills, every kind of lustful adventure is just a call away in Madhapur &mdash; available exactly when your shift ends.",
+         ]],
+        ["title" => "How to Recognize the Best Escort Service in Madhapur",
+         "icon" => "bi-search-heart",
+         "content" => [
+            "Many call girl suppliers exist in Hyderabad &mdash; learn how to recognize the best Madhapur escort service.",
+         ],
+         "list" => [
+            "Choose a Madhapur agency with multiple verified call girls and real photos.",
+            "Ensure full Madhapur coverage &mdash; Hitech junction, Ayyappa Society, Image Gardens, Durgam Cheruvu.",
+            "Always check photos, age, category and rating before hiring.",
+            "Genuine Madhapur agencies share direct WhatsApp numbers.",
+            "Look for on-demand &amp; instant 24/7 Madhapur booking.",
+         ]],
+        ["title" => "Independent Madhapur Call Girls vs Agency Escorts",
+         "icon" => "bi-person-heart",
+         "content" => [
+            "Searching for independent escort service in Madhapur? We provide both &mdash; independent call girls in Madhapur as well as agency-based VIP companions.",
+            "Contact us online or by phone, and we'll help you choose the best Madhapur call girls for sex, party companionship, roleplay or full-night sessions in any IT-corridor hotel.",
+         ]],
+        ["title" => "Cheap &amp; Affordable Madhapur Escort Service",
+         "icon" => "bi-cash-coin",
+         "content" => [
+            "Want a Madhapur call girl as your sex doll, but on a budget? Choose a cheap but quality option in Madhapur.",
+            "We offer cheap Madhapur escort service to book erotic girls without compromising on standard. Save money, still book top-notch Madhapur call girls.",
+         ]],
+        ["title" => "Why Choose Our Madhapur Call Girl Service",
+         "icon" => "bi-stars",
+         "content" => [
+            "Our Madhapur agency helps modern men release their suppressed sexual emotions after long IT shifts. The Madhapur escort experience is comfortable, enjoyable and erotic.",
+            "Our Madhapur call girls clear your emotional, physical and psychological burden &mdash; right in Hyderabad&rsquo;s most well-connected IT pocket.",
+         ]],
+        ["title" => "VIP, Hi-Profile &amp; College Call Girls in Madhapur",
+         "icon" => "bi-crown-fill",
+         "content" => [
+            "Want a Madhapur farmhouse private party companion or a discreet erotic evening at your hotel near Inorbit Mall? VIP escorts in Madhapur are ready to book online with instant booking.",
+            "Our Madhapur catalogue features housewives, MILFs, college girls, airhostesses, models, actresses, Russian beauties and Insta influencers.",
+         ]],
+        ["title" => "How to Contact Female Escorts in Madhapur",
+         "icon" => "bi-telephone-plus",
+         "content" => [
+            "Demand for female escorts in Madhapur is high. Don't know how to contact a call girl? We help you book sexy females in Madhapur.",
+         ],
+         "list" => [
+            "Visit our Madhapur call girls profile page above.",
+            "Browse profiles of verified Madhapur call girls.",
+            "Choose one or multiple based on your needs.",
+            "Book for incall or outcall in Madhapur hotels.",
+            "Pay through our secured payment options.",
+         ]],
+        ["title" => "24/7 On-Demand Madhapur Escort Booking",
+         "icon" => "bi-clock-history",
+         "content" => [
+            "Our Madhapur escort agency offers 24/7 booking. Book call girls anytime &mdash; midnight, early morning, weekend, weekday.",
+            "Same-day fast connect with Madhapur call girls is our signature.",
+         ]],
+        ["title" => "Genuine Companionship &amp; GFE in Madhapur",
+         "icon" => "bi-suit-heart-fill",
+         "content" => [
+            "Many men want emotional connection alongside sex. Book a Madhapur call girl to play your girlfriend for emotional satisfaction.",
+            "Our Madhapur escorts know various sex positions and roleplay. Book for genuine companionship, romantic dates, GFE or wild adult enjoyment.",
+         ]],
+        ["title" => "The Ultimate Madhapur Erotic Experience",
+         "icon" => "bi-rocket-takeoff-fill",
+         "content" => [
+            "Want to enter the ultimate state of fun and enjoyment? Book Madhapur call girls or escort girls with us &mdash; the most curated catalogue in Cyberabad.",
+            "Our Madhapur call girls help unveil a world of ultimate erotic experience. Book your Madhapur dream girl tonight.",
+         ]],
     ],
+
+    'guide_intro' => [
+        "Different categories of Madhapur call girls exist for booking hot girls for real fun. Search for an escort service in Madhapur that supplies hot call girls for sex.",
+        "Doubts about booking a Madhapur escort online? Follow the guide below on how to book call girls for sex in Madhapur with our agency.",
+    ],
+    'guide_steps' => default_guide_steps('Madhapur'),
+    'gallery'         => default_area_gallery(),
+    'content_banners' => default_area_banners(),
 ];
 
-render_area_page($page);
+render_swapna_page($page);

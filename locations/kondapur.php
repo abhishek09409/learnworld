@@ -2,68 +2,139 @@
 require __DIR__ . '/_layout.php';
 
 $page = [
-    'area'       => 'Kondapur',
-    'area_slug'  => 'kondapur',
-    'tagline'    => 'Hyderabad&rsquo;s IT-corridor lifestyle hub &mdash; modern, central, premium',
-    'hero_image' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80',
-    'meta_desc'  => 'Premium verified listings in Kondapur, Hyderabad. Browse profiles near Botanical Gardens, Sarath City Mall, Hitech City and more. Trusted, private, 24/7.',
-    'landmarks'  => ['Botanical Gardens','Sarath City Capital Mall','Inorbit Mall','Hitech City Border','Whisper Valley','Kothaguda','Kondapur Bus Stop','Image Gardens','Kothaguda Junction','Aparna Sarovar','Lumbini Avenue','Silpa Hills'],
-    'faqs'       => [
-        ['q'=>'How many listings are active in Kondapur?', 'a'=>'<p>Kondapur is one of the most active areas in our Hyderabad directory, with new profiles added daily. The exact count fluctuates throughout the day as advertisers update their availability.</p>'],
-        ['q'=>'Which sub-areas of Kondapur do you cover?', 'a'=>'<p>We cover all Kondapur micro-localities including Kothaguda, Whisper Valley, Lumbini Avenue, Image Gardens and the entire stretch up to the Hitech City border.</p>'],
-        ['q'=>'Are the Kondapur profiles available 24/7?', 'a'=>'<p>Most Kondapur listings are available throughout the day and late into the night, given the area&rsquo;s IT-corridor crowd. Each listing mentions specific availability hours.</p>'],
-        ['q'=>'Can I get a listing close to my hotel in Kondapur?', 'a'=>'<p>Yes. Use the area filter to narrow down profiles that explicitly serve Kondapur and nearby landmarks like Sarath City Mall or Botanical Gardens.</p>'],
-        ['q'=>'Is the contact verified for Kondapur listings?', 'a'=>'<p>Every phone number is checked manually before a Kondapur listing goes live. We also ensure photos are not duplicated or stock images.</p>'],
+    'area'        => 'Kondapur',
+    'area_slug'   => 'kondapur',
+    'brand'       => 'Kondapur Escorts',
+    'page_title'  => 'Kondapur Escort Service | Premium Call Girls in Kondapur Hyderabad',
+    'page_desc'   => 'Kondapur escort service offering elite call girls, housewives, college girls and VIP companions in Kondapur Hyderabad. 24/7 booking, verified profiles, total privacy.',
+    'contact_no'  => '+91 00000 00000',
+    'whatsapp_no' => '+91 00000 00000',
+    'hero_tagline'=> 'Premium Kondapur Call Girls &amp; Escort Service for Genuine Adult Entertainment',
+    'hero_sub'    => 'The most trusted escort agency in Kondapur Hyderabad &mdash; offering high-profile call girls, independent escorts, college girls, airhostesses, models &amp; VIP companions for sex, roleplay, romance and unforgettable lustful experiences right at the heart of Hyderabad&rsquo;s IT corridor.',
+
+    'intro_paragraphs' => [
+        "Kondapur Escorts is the trusted escort agency in Kondapur Hyderabad to go with when it comes to booking call girls in Kondapur for sex. Whether you want to book a Kondapur escort for erotic romance or roleplay, we have plenty of high-profile call girls to choose from to get your lustful requirements catered to right within the IT corridor of Hyderabad.",
+        "Do you want to spend time with high-profile escort girls in Kondapur? If yes, you must avail of premium escort services from this prominent and genuine call girl provider in Kondapur. From college girls and air hostesses to housewives and VIP models &mdash; our Kondapur catalogue has it all, available 24/7 for incall and outcall service near every major Kondapur landmark.",
     ],
-    'gallery' => [
-        ['image'=>'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=80','caption'=>'Modern Skyline'],
-        ['image'=>'https://images.unsplash.com/photo-1505761671935-60b3a7427bad?w=900&q=80','caption'=>'Premium Residences'],
-        ['image'=>'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80','caption'=>'Boutique Hotels'],
-        ['image'=>'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&q=80','caption'=>'Lifestyle Dining'],
-        ['image'=>'https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=900&q=80','caption'=>'Lounge Nights'],
-        ['image'=>'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=900&q=80','caption'=>'IT Corridor'],
-    ],
+
     'sections' => [
         [
-            'eyebrow' => 'Overview',
-            'title'   => 'Kondapur &mdash; Where the IT Corridor Lives',
-            'image'   => 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200&q=80',
-            'body'    => '
-<p>Kondapur is one of the most rapidly growing residential and commercial belts of Hyderabad, sitting right at the doorstep of the city&rsquo;s legendary IT corridor. Bordered by Hitech City on one side and Gachibowli on the other, the area has transformed in just two decades from a quiet suburb into a buzzing, modern neighbourhood that mirrors the energy of Cyberabad itself. For visitors and locals alike, Kondapur is the perfect blend of convenience, contemporary infrastructure and lifestyle &mdash; which is precisely why our listings here have grown into one of the most active catalogues on Inscallup.</p>
-<p>The neighbourhood is dotted with premium gated communities, modern apartment complexes, designer boutique hotels and a never-ending stream of cafes, lounges and rooftop bars. From <strong>Sarath City Capital Mall</strong> &mdash; one of the largest in South India &mdash; to the leafy <strong>Botanical Gardens</strong>, Kondapur has something for every kind of evening. Our directory is built to mirror this variety with carefully verified profiles available across the area.</p>',
+            "title" => "Kondapur Escort Service - Book Genuine Call Girls in Kondapur for Adult Entertainment",
+            "icon"  => "bi-gem",
+            "content" => [
+                "You would always like to get rid of your usual boring life. But you don't know how. For this, our Kondapur escort service comes with premium call girl services right at the doorstep of Hitech City. Whether you want to book hot college girls for sex or air hostesses for call girl services in Kondapur, you can easily find what you really need.",
+                "We supply call girls in Kondapur to help our clients make their life more exciting and lustful than ever before. Whether you want to enjoy roleplay or a genuine girlfriend feeling, you will find our Kondapur call girls a genuine and discreet option to go with.",
+            ],
         ],
         [
-            'eyebrow' => 'Why Kondapur',
-            'title'   => 'Connectivity, Convenience and Class',
-            'image'   => 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80',
-            'body'    => '
-<p>One of the biggest reasons Kondapur is so popular is its central position in the western belt of Hyderabad. The area connects directly to <strong>Hitech City</strong>, <strong>Gachibowli</strong>, <strong>Madhapur</strong>, and <strong>Jubilee Hills</strong>, with the Outer Ring Road just minutes away. The proposed metro line is set to make this connectivity even smoother. For business travellers checking into one of the area&rsquo;s many serviced apartments, this means short, easy commutes to wherever the night takes them.</p>
-<p>The lifestyle quotient is equally strong. Kondapur is home to a remarkable concentration of premium spas, lounges, multi-cuisine restaurants and luxury hotels &mdash; including a dense pocket along the <strong>Whisper Valley</strong> and <strong>Lumbini Avenue</strong> stretches. The crowd here is young, professional, and cosmopolitan, which translates directly into the kind of quality, confident interactions our verified listings are known for.</p>',
+            "title" => "Is Our Kondapur Escort Agency Genuine and Safe?",
+            "icon"  => "bi-patch-check-fill",
+            "content" => [
+                "Before choosing an escort agency in Kondapur, you would first like to confirm whether it's genuine or not. The same rule applies when it comes to booking Kondapur call girls for sex. The simple answer is a BIG yes &mdash; we are known for our safety and privacy commitment in Kondapur.",
+                "We don't share confidential information of our clients with anyone. Every call girl in Kondapur listed with us is manually verified, and your phone number, location and conversations stay strictly between you and the chosen companion.",
+            ],
         ],
         [
-            'eyebrow' => 'The Listings',
-            'title'   => 'A Premium, Curated Catalogue',
-            'image'   => 'https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=1200&q=80',
-            'body'    => '
-<p>What sets the Kondapur page apart from generic classifieds is our obsession with quality. Each profile listed here is reviewed manually before going live. We verify the phone number, scan photographs against our database to weed out duplicates, and read every description to make sure nothing misleading slips through. The result is a directory you can browse with confidence &mdash; what you see is exactly what you get.</p>
-<p>Listings cover the full Kondapur footprint, from the inner residential lanes near <strong>Image Gardens</strong> and <strong>Kothaguda</strong> to the high-traffic corridors close to Sarath City Mall. Each card on the listings page shows a clean photograph, the advertiser&rsquo;s age, a short authentic description, and a direct contact channel &mdash; tap-to-call, WhatsApp, or Telegram. No middle steps, no fake redirects, no spam.</p>
-<ul>
-  <li>Verified phone numbers and photographs only</li>
-  <li>Multiple contact channels for fast response</li>
-  <li>Filtering by sub-locality within Kondapur</li>
-  <li>Mobile-first interface for fast browsing on the go</li>
-</ul>',
+            "title" => "Why Kondapur Is Hyderabad&rsquo;s Hottest Escort Hub",
+            "icon"  => "bi-fire",
+            "content" => [
+                "Kondapur sits right next to Hitech City, which makes it the most active escort booking zone in all of Hyderabad. With premium hotels around Sarath City Capital Mall, the Whisper Valley belt, Botanical Gardens stretch and Kothaguda junction, you have endless options to enjoy a discreet evening with our Kondapur call girls.",
+                "The IT crowd here demands premium quality, and our Kondapur escorts deliver exactly that. From quick incall sessions in serviced apartments to long romantic outcall dates near Inorbit Mall, every kind of lustful adventure is just a call away.",
+            ],
         ],
         [
-            'eyebrow' => 'Lifestyle',
-            'title'   => 'A Day &amp; Night in Kondapur',
-            'image'   => 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=1200&q=80',
-            'body'    => '
-<p>Kondapur shines brightest after sunset. The area transforms into a hub of lounges, restaurants and modern entertainment spots that draw both the local IT crowd and visitors staying at the surrounding hotels. Whether you are coming off a long day at a Hitech City office, landing late from a flight via the ORR, or simply exploring Hyderabad for the first time, Kondapur offers a refined evening backdrop.</p>
-<p>For visitors planning their evening, our recommendation is simple: shortlist a few profiles from this page using our area filter, decide on a comfortable spot &mdash; perhaps near <strong>Inorbit Mall</strong> or in the lanes close to <strong>Botanical Gardens</strong> &mdash; and reach out via WhatsApp for the quickest reply. Most Kondapur advertisers respond within minutes thanks to the fast-paced character of the area.</p>
-<p>Inscallup&rsquo;s Kondapur directory is built to make this entire process feel effortless. From discovery to direct contact, every step is mobile-optimised, privacy-first, and designed to deliver the premium experience the neighbourhood deserves. Tap the browse button, find your listing, and let Kondapur do the rest.</p>',
+            "title" => "How to Recognize the Best Escort Service in Kondapur",
+            "icon"  => "bi-search-heart",
+            "content" => [
+                "Since there are lots of call girl suppliers and agencies in Hyderabad, you may get confused about recognizing a genuine Kondapur escort agency. That's why it's necessary to learn how to recognize the best escort service in Kondapur.",
+            ],
+            "list" => [
+                "Choose an escort agency that can show you multiple Kondapur call girls online with real photos.",
+                "Make sure the supplier covers the entire Kondapur belt &mdash; Hitech City border, Kothaguda, Whisper Valley, Image Gardens.",
+                "Before hiring, always check her photos, age, category and verified rating.",
+                "Genuine Kondapur agencies provide direct WhatsApp numbers of call girls for private discussions.",
+                "Choose those who offer on-demand &amp; instant booking for Kondapur sex services 24/7.",
+            ],
+        ],
+        [
+            "title" => "Independent Kondapur Call Girls vs Agency Escorts",
+            "icon"  => "bi-person-heart",
+            "content" => [
+                "When you decide to explore the world of lust and erotic romance in Kondapur, you may search for independent escort service in Kondapur. We provide both options &mdash; independent call girls in Kondapur for sex as well as agency-based premium VIP companions.",
+                "You just need to contact us online or over the phone, and we will help you choose the best out of the best Kondapur call girls for sex, party companionship, roleplay or full-night sessions in any hotel near Hitech City or Kondapur main road.",
+            ],
+        ],
+        [
+            "title" => "Cheap &amp; Affordable Escort Service in Kondapur",
+            "icon"  => "bi-cash-coin",
+            "content" => [
+                "Being a man, you would always like to book a Kondapur call girl who can be your best sex doll. But the problem comes when you have to cope with expensive escort girls. Obviously, you would like to end up with a cheap but quality option in Kondapur.",
+                "We come with cheap Kondapur escort service to book erotic girls for sex and other adult services without compromising on standard. Save money, but still book top-notch Kondapur call girls.",
+            ],
+        ],
+        [
+            "title" => "Why Choose Our Kondapur Call Girl Service Over Others",
+            "icon"  => "bi-stars",
+            "content" => [
+                "Our Kondapur agency is formed to help contemporary men book escort girls in and around Kondapur to release their suppressed sexual emotions. We aim to provide a Kondapur escort experience that helps you make your life more comfortable, enjoyable and erotic.",
+                "By choosing our call girls for sex in Kondapur, you can get rid of all your suppressed emotional, physical and psychological burden &mdash; right next to Hitech City&rsquo;s busiest hotels and lounges.",
+            ],
+        ],
+        [
+            "title" => "VIP, Hi-Profile &amp; College Call Girls in Kondapur",
+            "icon"  => "bi-crown-fill",
+            "content" => [
+                "Whether you want to throw a private party at a Kondapur farmhouse or simply enjoy a discreet erotic evening at your hotel near Sarath City, we have VIP escorts in Kondapur ready to book online. Our internet on-demand and instant booking facility lets you book escort girls for nude and wild sex parties in Kondapur.",
+                "Our Kondapur catalogue features housewives, MILFs, college girls, airhostesses, models, actresses, Russian beauties and Instagram influencers &mdash; pick exactly what suits your fantasy tonight.",
+            ],
+        ],
+        [
+            "title" => "How to Contact Female Escorts in Kondapur",
+            "icon"  => "bi-telephone-plus",
+            "content" => [
+                "There is an increasing demand for female escorts in Kondapur. But you don't know how to contact a call girl for sex in Kondapur. We help you book sexy females for call girl services right in the Kondapur belt.",
+            ],
+            "list" => [
+                "Visit our Kondapur call girls profile page above.",
+                "Browse various profiles of verified Kondapur call girls.",
+                "Choose one or multiple call girls according to your service needs.",
+                "Book Kondapur escorts for an incall (her place) or outcall (your hotel) service.",
+                "Pay through our secured payment options &mdash; cash, UPI or online.",
+            ],
+        ],
+        [
+            "title" => "24/7 Available On-Demand Kondapur Escort Booking",
+            "icon"  => "bi-clock-history",
+            "content" => [
+                "The best part of choosing our Kondapur escort agency is that you enjoy 24/7 available booking. You can book call girls for sex in Kondapur irrespective of time and location &mdash; midnight, early morning, weekend or weekday.",
+                "Same-day fast connect with Kondapur call girls is our signature. Whether you need a girl in 30 minutes at your hotel or a planned weekend companion, we deliver exactly when you need her.",
+            ],
+        ],
+        [
+            "title" => "Genuine Companionship &amp; GFE in Kondapur",
+            "icon"  => "bi-suit-heart-fill",
+            "content" => [
+                "Most men don't just want to book a Kondapur call girl to have sex &mdash; they want something emotional. There are clients who book escort girls who can play the role of their girlfriend. If you want to book a call girl in Kondapur to play the role of your girlfriend to emotionally satisfy you, we are the best call girl supplier for the Kondapur area.",
+                "Our Kondapur escorts know how to play different sex positions and taboo roles to cater to the sexual requirements of their elite clients. Book Kondapur call girls for genuine companionship, romantic dinner dates, GFE or wild adult enjoyment &mdash; all in one place.",
+            ],
+        ],
+        [
+            "title" => "Get the Ultimate Erotic Experience in Kondapur",
+            "icon"  => "bi-rocket-takeoff-fill",
+            "content" => [
+                "The key objective behind booking a Kondapur call girl is to have sex with her to explore the ultimate erotic experience. If you want to enter into an ultimate state of fun and enjoyment, you need to book call girls or escort girls in Kondapur with us.",
+                "We focus on supplying Kondapur call girls who can help you unveil a new world of ultimate erotic experience right in Hyderabad&rsquo;s most modern lifestyle hub. Make your life more lustful and erotic &mdash; book your Kondapur dream girl tonight.",
+            ],
         ],
     ],
+
+    'guide_intro' => [
+        "There are different types of call girls in Kondapur to go with when it comes to booking hot girls for real fun and entertainment. That's why you need to search for an escort service in Kondapur that can supply you hot call girls for sex.",
+        "Do you still have various doubts about how to book a Kondapur escort online? Go through the guide below on how you can book call girls for sex in Kondapur with our agency.",
+    ],
+    'guide_steps' => default_guide_steps('Kondapur'),
+    'gallery'         => default_area_gallery(),
+    'content_banners' => default_area_banners(),
 ];
 
-render_area_page($page);
+render_swapna_page($page);

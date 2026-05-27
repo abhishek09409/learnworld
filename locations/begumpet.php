@@ -2,68 +2,115 @@
 require __DIR__ . '/_layout.php';
 
 $page = [
-    'area'       => 'Begumpet',
-    'area_slug'  => 'begumpet',
-    'tagline'    => 'Old-Hyderabad charm meets modern hospitality &mdash; central, classic, convenient',
-    'hero_image' => 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=1600&q=80',
-    'meta_desc'  => 'Premium verified listings in Begumpet, Hyderabad. Profiles near Begumpet Airport, Prakash Nagar, Sangeet Cinema, ITC Kakatiya. Trusted, private, 24/7.',
-    'landmarks'  => ['Begumpet Old Airport','ITC Kakatiya','Prakash Nagar','Sangeet Cinema','Hyderabad Public School','Greenlands','Lifestyle Begumpet','Patny Centre','Ameerpet Approach','SR Nagar','Chikoti Gardens','Tivoli Junction'],
-    'faqs'       => [
-        ['q'=>'Why is Begumpet still popular even after the new airport moved?', 'a'=>'<p>Begumpet remains one of central Hyderabad&rsquo;s most connected neighbourhoods, with a dense hotel cluster, classic restaurants and quick access to Banjara Hills, Ameerpet and Secunderabad.</p>'],
-        ['q'=>'Are listings near ITC Kakatiya covered?', 'a'=>'<p>Yes. ITC Kakatiya is one of the anchor properties of our Begumpet directory, and many listings are aligned with guests staying there.</p>'],
-        ['q'=>'Are the listings verified?', 'a'=>'<p>Every Begumpet listing has a manually verified phone number and a screened photograph &mdash; no exceptions.</p>'],
-        ['q'=>'Do you cover Patny Centre and SR Nagar borders?', 'a'=>'<p>Yes, the Begumpet area filter naturally includes Patny Centre, Greenlands and SR Nagar approach as part of the broader belt.</p>'],
-        ['q'=>'Is contact direct?', 'a'=>'<p>Always. Tap-to-call, WhatsApp and Telegram all connect you straight to the advertiser, with nothing routed through Inscallup.</p>'],
+    'area'        => 'Begumpet',
+    'area_slug'   => 'begumpet',
+    'brand'       => 'Begumpet Escorts',
+    'page_title'  => 'Begumpet Escort Service | Premium Call Girls in Begumpet Hyderabad',
+    'page_desc'   => 'Begumpet escort service offering elite call girls, housewives, college girls and VIP companions in Begumpet Hyderabad. 24/7 booking, verified profiles.',
+    'contact_no'  => '+91 00000 00000',
+    'whatsapp_no' => '+91 00000 00000',
+    'hero_tagline'=> 'Begumpet Premium Call Girls &mdash; Old-Hyderabad Charm Meets Modern Hospitality',
+    'hero_sub'    => 'Begumpet&rsquo;s most trusted escort agency &mdash; offering high-profile call girls, independent escorts, college girls, airhostesses, models &amp; VIP companions for sex and erotic experiences in central Hyderabad.',
+
+    'intro_paragraphs' => [
+        "Begumpet Escorts is the trusted escort agency in Begumpet Hyderabad to book call girls for sex. Whether you want to book a Begumpet escort for erotic romance or roleplay, we have plenty of high-profile call girls across the iconic ITC Kakatiya, Sangeet Cinema and Prakash Nagar belt.",
+        "Do you want to spend time with high-profile escort girls in Begumpet? Avail premium escort services from this genuine call girl provider near Hyderabad Public School, Patny Centre, Greenlands and the SR Nagar approach.",
     ],
-    'gallery' => [
-        ['image'=>'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=900&q=80','caption'=>'Central Streets'],
-        ['image'=>'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80','caption'=>'Heritage Hotels'],
-        ['image'=>'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&q=80','caption'=>'Classic Restaurants'],
-        ['image'=>'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80','caption'=>'Lifestyle Cafes'],
-        ['image'=>'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=80','caption'=>'Old Airport View'],
-        ['image'=>'https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=900&q=80','caption'=>'Boutique Lounges'],
-    ],
+
     'sections' => [
-        [
-            'eyebrow' => 'Overview',
-            'title'   => 'Begumpet &mdash; Central Hyderabad&rsquo;s Classic Address',
-            'image'   => 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=1200&q=80',
-            'body'    => '
-<p>Begumpet is one of those quintessentially Hyderabad neighbourhoods &mdash; centrally located, classically built, and steadily evolving without losing the character it has carried for decades. Home to the original <strong>Begumpet Old Airport</strong>, the legendary <strong>Hyderabad Public School</strong>, and a long list of central hotels including the iconic <strong>ITC Kakatiya</strong>, the area continues to be a strong base for both business travellers and lifestyle visitors.</p>
-<p>Our Begumpet listings reflect that classic, trustworthy character. The verified profiles you find here are aligned with the area&rsquo;s mature, well-mannered audience &mdash; senior corporate guests, weekend visitors, and central-Hyderabad regulars who prefer convenience and discretion over flash. Whether you are staying at ITC Kakatiya or in a serviced apartment near <strong>Prakash Nagar</strong>, our directory is your fastest entry point to the local scene.</p>',
-        ],
-        [
-            'eyebrow' => 'Why Begumpet',
-            'title'   => 'Centrality That Never Goes Out of Style',
-            'image'   => 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80',
-            'body'    => '
-<p>Begumpet&rsquo;s strongest asset is its location. The area connects directly to <strong>Banjara Hills</strong>, <strong>Ameerpet</strong>, <strong>Secunderabad</strong> and <strong>Punjagutta</strong> through arterial roads, and the metro line passes right through the heart of the neighbourhood. Visitors can move easily across central and western Hyderabad without worrying about traffic, which is why Begumpet has remained a popular base even after the international airport shifted to Shamshabad.</p>
-<p>This connectivity directly translates into the kind of listings you find here. Our verified Begumpet advertisers cover not just the immediate stretch but also the <strong>Greenlands</strong>, <strong>Patny Centre</strong> and <strong>SR Nagar</strong> approach, giving visitors a wide and confident choice within minutes of their hotel.</p>',
-        ],
-        [
-            'eyebrow' => 'The Listings',
-            'title'   => 'Reliable, Verified, Centrally Available',
-            'image'   => 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80',
-            'body'    => '
-<p>The Begumpet directory has been built around dependability. Every profile is reviewed before going live &mdash; phone numbers verified, photographs scanned, descriptions read for clarity. Inactive listings are removed within 48 hours so the catalogue you see is always a current, trustworthy snapshot of the neighbourhood.</p>
-<p>Coverage spans the full Begumpet footprint &mdash; from the lanes near <strong>Sangeet Cinema</strong> and <strong>Tivoli Junction</strong> to the residential pockets around <strong>Chikoti Gardens</strong> and the upscale stretches near ITC Kakatiya. Each listing card shows a real photograph, a thoughtful description, the advertiser&rsquo;s age, and at least one direct contact channel &mdash; phone, WhatsApp or Telegram. The conversation is always direct between you and the advertiser.</p>
-<ul>
-  <li>Manually moderated, dependable catalogue</li>
-  <li>Aligned with ITC Kakatiya and other central hotels</li>
-  <li>Coverage including Patny, SR Nagar and Greenlands</li>
-  <li>Direct contact &mdash; phone, WhatsApp or Telegram</li>
-</ul>',
-        ],
-        [
-            'eyebrow' => 'Lifestyle',
-            'title'   => 'A Classic Hyderabad Evening',
-            'image'   => 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80',
-            'body'    => '
-<p>Begumpet&rsquo;s evening character is comfortably classic. The neighbourhood has a long memory of legendary restaurants, well-loved cafes and timeless hotel lobbies that continue to draw a regular crowd of central Hyderabad lifers. Walk along the main road toward <strong>Greenlands</strong> and you can feel the layers of the city&rsquo;s history &mdash; cinemas that have run for generations, bakeries that locals swear by, and a rhythm that feels grounded rather than frantic.</p>
-<p>For visitors planning their Begumpet evening, our suggestion is to filter the listings page to this area, shortlist a couple of profiles whose presentation matches the calm tone of the neighbourhood, and reach out via WhatsApp for the fastest reply. The combination of central location, dependable hotels and verified listings makes the entire process feel effortless.</p>
-<p>Inscallup&rsquo;s Begumpet page is the cleanest, fastest way to discover the area&rsquo;s premium scene. Verified catalogue, premium design, total privacy &mdash; central Hyderabad as it has always deserved.</p>',
-        ],
+        ["title" => "Begumpet Escort Service - Classic Central Hyderabad Call Girls",
+         "icon" => "bi-gem",
+         "content" => [
+            "You would always like to add elegant excitement to your central Hyderabad stay. Our Begumpet escort service brings premium call girl services right next to ITC Kakatiya. Whether college girls, air hostesses or models for call girl services in Begumpet, you'll find what suits your taste.",
+            "We supply call girls in Begumpet aligned with old-Hyderabad charm and modern hospitality &mdash; refined, classic and absolutely discreet for central business travellers.",
+         ]],
+        ["title" => "Is Our Begumpet Escort Agency Genuine and Safe?",
+         "icon" => "bi-patch-check-fill",
+         "content" => [
+            "Confirm authenticity before booking in central Hyderabad. The simple answer is YES &mdash; we are known for safety and privacy commitment in Begumpet.",
+            "We don't share confidential client information. Every Begumpet call girl is manually verified, and your data stays strictly between you and the chosen companion.",
+         ]],
+        ["title" => "Why Begumpet Remains a Hyderabad Escort Classic",
+         "icon" => "bi-fire",
+         "content" => [
+            "Even after the international airport moved to Shamshabad, Begumpet remains a central Hyderabad escort classic &mdash; thanks to ITC Kakatiya, dense hotel cluster, the metro line and proximity to Banjara Hills, Ameerpet and Secunderabad.",
+            "From quick incall sessions to long romantic outcall dates, our Begumpet call girls are aligned with the area&rsquo;s mature, well-mannered audience &mdash; senior corporate guests and central Hyderabad regulars.",
+         ]],
+        ["title" => "How to Recognize the Best Escort Service in Begumpet",
+         "icon" => "bi-search-heart",
+         "content" => [
+            "Many call girl suppliers exist in Hyderabad &mdash; learn how to recognize the best Begumpet escort service.",
+         ],
+         "list" => [
+            "Choose a Begumpet agency with verified call girls and real photos.",
+            "Ensure full coverage &mdash; ITC Kakatiya, Patny Centre, Greenlands, SR Nagar.",
+            "Check photos, age, category and rating before hiring.",
+            "Genuine Begumpet agencies share direct WhatsApp numbers.",
+            "Look for on-demand &amp; instant 24/7 booking.",
+         ]],
+        ["title" => "Independent Begumpet Call Girls vs Agency Escorts",
+         "icon" => "bi-person-heart",
+         "content" => [
+            "Searching for independent escort service in Begumpet? We provide both &mdash; independent call girls and agency-based VIP companions.",
+            "Contact us online or by phone for the best Begumpet call girls for sex, dinner companionship, roleplay or full-night sessions.",
+         ]],
+        ["title" => "Cheap &amp; Affordable Begumpet Escort Service",
+         "icon" => "bi-cash-coin",
+         "content" => [
+            "Want a Begumpet call girl, but expensive options bothering you? Choose a cheap but quality option in Begumpet.",
+            "We offer cheap Begumpet escort service without compromising on standard. Save money, still book top-notch Begumpet call girls.",
+         ]],
+        ["title" => "Why Choose Our Begumpet Call Girl Service",
+         "icon" => "bi-stars",
+         "content" => [
+            "Our Begumpet agency helps central-Hyderabad men book escort girls to release suppressed emotions. The Begumpet escort experience is comfortable, classic and erotic.",
+            "Our Begumpet call girls clear emotional, physical and psychological burden right at central Hyderabad&rsquo;s most enduring address.",
+         ]],
+        ["title" => "VIP, Hi-Profile &amp; College Call Girls in Begumpet",
+         "icon" => "bi-crown-fill",
+         "content" => [
+            "Want a private party companion or a discreet erotic evening at ITC Kakatiya? VIP escorts in Begumpet are ready to book online with instant booking.",
+            "Our Begumpet catalogue features housewives, MILFs, college girls, airhostesses, models, actresses, Russian beauties and Insta influencers.",
+         ]],
+        ["title" => "How to Contact Female Escorts in Begumpet",
+         "icon" => "bi-telephone-plus",
+         "content" => [
+            "Demand for female escorts in Begumpet is steady. Here is how to contact a Begumpet call girl.",
+         ],
+         "list" => [
+            "Visit our Begumpet call girls profile page above.",
+            "Browse profiles of verified Begumpet call girls.",
+            "Choose one or multiple based on your needs.",
+            "Book for incall or outcall in central hotels.",
+            "Pay through our secured payment options.",
+         ]],
+        ["title" => "24/7 On-Demand Begumpet Escort Booking",
+         "icon" => "bi-clock-history",
+         "content" => [
+            "Our Begumpet escort agency offers 24/7 booking. Book call girls anytime &mdash; midnight, early morning, weekend, weekday.",
+            "Same-day fast connect with Begumpet call girls is our signature.",
+         ]],
+        ["title" => "Genuine Companionship &amp; GFE in Begumpet",
+         "icon" => "bi-suit-heart-fill",
+         "content" => [
+            "Many men want emotional connection alongside sex. Book a Begumpet call girl to play your girlfriend for emotional satisfaction.",
+            "Our Begumpet escorts know various sex positions and roleplay. Book for genuine companionship, romantic dates, GFE or wild adult enjoyment.",
+         ]],
+        ["title" => "The Ultimate Begumpet Erotic Experience",
+         "icon" => "bi-rocket-takeoff-fill",
+         "content" => [
+            "Want to enter the ultimate state of fun? Book Begumpet call girls or escort girls with us &mdash; classic central Hyderabad at its best.",
+            "Our Begumpet call girls help unveil a world of ultimate erotic experience. Book your Begumpet dream girl tonight.",
+         ]],
     ],
+
+    'guide_intro' => [
+        "Different categories of Begumpet call girls exist for booking hot girls. Search for an escort service in Begumpet that supplies hot call girls for sex.",
+        "Doubts about booking a Begumpet escort online? Follow the guide below to book call girls for sex in Begumpet.",
+    ],
+    'guide_steps' => default_guide_steps('Begumpet'),
+    'gallery'         => default_area_gallery(),
+    'content_banners' => default_area_banners(),
 ];
 
-render_area_page($page);
+render_swapna_page($page);

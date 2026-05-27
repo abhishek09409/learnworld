@@ -2,68 +2,115 @@
 require __DIR__ . '/_layout.php';
 
 $page = [
-    'area'       => 'Masab Tank',
-    'area_slug'  => 'masab-tank',
-    'tagline'    => 'A central Hyderabad crossroads &mdash; cosmopolitan, connected, always alive',
-    'hero_image' => 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=1600&q=80',
-    'meta_desc'  => 'Premium verified listings in Masab Tank, Hyderabad. Profiles near Mehdipatnam, Tolichowki, NMDC, Vijaynagar Colony. Trusted, private, 24/7.',
-    'landmarks'  => ['Mehdipatnam Approach','Tolichowki Border','NMDC','Vijaynagar Colony','Asif Nagar','Humayun Nagar','Banjara Hills Road No. 12','Khairatabad','Lakdikapul','Sarojini Devi Eye Hospital','Owaisi Hospital','MGBS Approach'],
-    'faqs'       => [
-        ['q'=>'Is Masab Tank a good base for travellers?', 'a'=>'<p>Yes. Masab Tank&rsquo;s position between Mehdipatnam, Banjara Hills and Lakdikapul makes it one of the most strategically connected neighbourhoods in central Hyderabad.</p>'],
-        ['q'=>'Are listings verified in Masab Tank?', 'a'=>'<p>Every profile is manually reviewed before publication, with phone numbers, photographs and descriptions all checked.</p>'],
-        ['q'=>'Do you cover Tolichowki and Mehdipatnam borders?', 'a'=>'<p>Yes. Tolichowki and Mehdipatnam are part of the natural Masab Tank coverage, alongside Asif Nagar and Humayun Nagar.</p>'],
-        ['q'=>'How current is the catalogue?', 'a'=>'<p>The Masab Tank catalogue is refreshed daily, with inactive listings removed within 48 hours.</p>'],
-        ['q'=>'Is the contact channel direct?', 'a'=>'<p>Yes. Phone, WhatsApp and Telegram all connect directly between you and the advertiser, with nothing routed through Inscallup.</p>'],
+    'area'        => 'Masab Tank',
+    'area_slug'   => 'masab-tank',
+    'brand'       => 'Masab Tank Escorts',
+    'page_title'  => 'Masab Tank Escort Service | Premium Call Girls in Masab Tank Hyderabad',
+    'page_desc'   => 'Masab Tank escort service offering elite call girls, housewives, college girls and VIP companions in Masab Tank Hyderabad. 24/7 booking, verified profiles.',
+    'contact_no'  => '+91 00000 00000',
+    'whatsapp_no' => '+91 00000 00000',
+    'hero_tagline'=> 'Masab Tank Premium Call Girls &mdash; Cosmopolitan Central Hyderabad&rsquo;s Crossroads',
+    'hero_sub'    => 'Masab Tank&rsquo;s most trusted escort agency &mdash; offering high-profile call girls, independent escorts, college girls, airhostesses, models &amp; VIP companions for sex and erotic experiences at central Hyderabad&rsquo;s liveliest crossroads.',
+
+    'intro_paragraphs' => [
+        "Masab Tank Escorts is the trusted escort agency in Masab Tank Hyderabad to book call girls for sex. Whether you want to book a Masab Tank escort for erotic romance or roleplay, we have plenty of high-profile call girls across the cosmopolitan crossroads of Mehdipatnam, Tolichowki and Banjara Hills.",
+        "Do you want to spend time with high-profile escort girls in Masab Tank? Avail premium escort services from this genuine call girl provider near NMDC, Vijaynagar Colony, Asif Nagar, Humayun Nagar and the Banjara Hills Road No. 12 entry.",
     ],
-    'gallery' => [
-        ['image'=>'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=900&q=80','caption'=>'Central Crossroads'],
-        ['image'=>'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&q=80','caption'=>'Boutique Hotels'],
-        ['image'=>'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=900&q=80','caption'=>'Lifestyle Dining'],
-        ['image'=>'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80','caption'=>'Premium Cafes'],
-        ['image'=>'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=900&q=80','caption'=>'Cosmopolitan Streets'],
-        ['image'=>'https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?w=900&q=80','caption'=>'Quiet Lounges'],
-    ],
+
     'sections' => [
-        [
-            'eyebrow' => 'Overview',
-            'title'   => 'Masab Tank &mdash; The Central Crossroads',
-            'image'   => 'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?w=1200&q=80',
-            'body'    => '
-<p>Masab Tank is a true central Hyderabad crossroads &mdash; a meeting point of <strong>Mehdipatnam</strong>, <strong>Tolichowki</strong>, <strong>Banjara Hills</strong>, <strong>Khairatabad</strong> and <strong>Asif Nagar</strong>. The area takes its name from the historic tank that once defined this part of the city, and even today it carries the cosmopolitan feel of a neighbourhood that everyone passes through. With the <strong>NMDC</strong>, multiple major hospitals and a long list of central residential pockets in its orbit, Masab Tank stays alive throughout the day and well into the night.</p>
-<p>Our Masab Tank listings reflect this lively, well-connected character. The verified profiles you find here are accustomed to the wide range of visitors that pass through the area &mdash; corporate guests, medical visitors, weekend explorers and central-Hyderabad residents alike. Whether you are based in a central hotel or a serviced apartment toward Vijaynagar Colony, our directory is your fastest entry point.</p>',
-        ],
-        [
-            'eyebrow' => 'Why Masab Tank',
-            'title'   => 'A Strategic Central Hub',
-            'image'   => 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=1200&q=80',
-            'body'    => '
-<p>The biggest reason Masab Tank has remained popular for decades is its strategic geography. The area is exactly equidistant from <strong>Banjara Hills</strong>, <strong>Lakdikapul</strong> and <strong>Mehdipatnam</strong>, which means a visitor based here can reach almost any major Hyderabad lifestyle district within a short drive. The <strong>Mehdipatnam approach</strong> further connects Masab Tank to the Outer Ring Road and the airport route via the PVNR Expressway.</p>
-<p>This connectivity is why our verified Masab Tank listings cover such a wide footprint. Advertisers in this directory naturally serve the surrounding belts of <strong>Tolichowki</strong>, <strong>Asif Nagar</strong> and <strong>Humayun Nagar</strong>, giving visitors a confident, well-distributed choice within minutes of their hotel.</p>',
-        ],
-        [
-            'eyebrow' => 'The Listings',
-            'title'   => 'Verified, Diverse, Always Current',
-            'image'   => 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80',
-            'body'    => '
-<p>The Masab Tank catalogue has been built around diversity and dependability. Every profile passes through manual review before going live &mdash; phone numbers verified, photographs scanned for authenticity, descriptions read for clarity. Inactive listings are removed within 48 hours so the directory you scroll through is genuinely current.</p>
-<p>Coverage spans the full Masab Tank footprint &mdash; from the lanes around <strong>Vijaynagar Colony</strong> to the residential stretches near <strong>Owaisi Hospital</strong> and the boundaries with <strong>Banjara Hills Road No. 12</strong>. Each listing card shows a clean photograph, a thoughtful description, the advertiser&rsquo;s age, and a direct contact channel &mdash; phone, WhatsApp or Telegram. The conversation always stays between you and the advertiser.</p>
-<ul>
-  <li>Manually moderated catalogue with daily refresh</li>
-  <li>Wide coverage from Tolichowki to Khairatabad</li>
-  <li>Direct contact &mdash; phone, WhatsApp or Telegram</li>
-  <li>Mobile-first browsing for fast discovery</li>
-</ul>',
-        ],
-        [
-            'eyebrow' => 'Lifestyle',
-            'title'   => 'A Cosmopolitan Central Evening',
-            'image'   => 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80',
-            'body'    => '
-<p>Masab Tank&rsquo;s evening character is genuinely cosmopolitan. The area mixes long-running family eateries with newer cafes and lounges that appeal to a younger, faster crowd. Head a few minutes toward <strong>Tolichowki</strong> and you enter one of Hyderabad&rsquo;s most beloved food belts; head the other way and you are at the doorstep of Banjara Hills&rsquo; high-end fine dining. Few central neighbourhoods offer such a wide range of evening options within walking distance.</p>
-<p>For visitors planning a Masab Tank evening, our recommendation is to filter the listings page to this area, shortlist a few profiles whose presentation matches your preferences, and reach out via WhatsApp for the fastest reply. Pair the meeting with a meal at one of the area&rsquo;s legendary biryani houses or rooftop cafes and you have a quintessentially central-Hyderabad evening planned within minutes.</p>
-<p>Inscallup&rsquo;s Masab Tank page is built to make all of this effortless. Premium design, verified catalogue, total privacy &mdash; central Hyderabad as it actually deserves to be experienced.</p>',
-        ],
+        ["title" => "Masab Tank Escort Service - Cosmopolitan Central Call Girls",
+         "icon" => "bi-gem",
+         "content" => [
+            "You would always like to add cosmopolitan excitement to your central Hyderabad stay. Our Masab Tank escort service brings premium call girl services right at the city&rsquo;s busiest crossroads. Whether college girls, air hostesses or models for call girl services in Masab Tank, you'll find what fits your taste.",
+            "We supply call girls in Masab Tank aligned with the area&rsquo;s diverse, fast-moving audience &mdash; from corporate professionals to weekend explorers seeking discreet adult entertainment.",
+         ]],
+        ["title" => "Is Our Masab Tank Escort Agency Genuine and Safe?",
+         "icon" => "bi-patch-check-fill",
+         "content" => [
+            "Confirm authenticity before booking. The simple answer is YES &mdash; we are known for safety and privacy commitment in Masab Tank.",
+            "We don't share confidential client information. Every Masab Tank call girl is manually verified, and your data stays strictly between you and the chosen companion.",
+         ]],
+        ["title" => "Why Masab Tank Is a Strategic Escort Hub",
+         "icon" => "bi-fire",
+         "content" => [
+            "Masab Tank sits at the meeting point of Mehdipatnam, Tolichowki, Banjara Hills, Khairatabad and Asif Nagar. This strategic geography makes Masab Tank one of Hyderabad&rsquo;s most convenient escort hubs.",
+            "From quick incall sessions to long romantic outcall dates, our Masab Tank call girls are within minutes of any central hotel and restaurant.",
+         ]],
+        ["title" => "How to Recognize the Best Escort Service in Masab Tank",
+         "icon" => "bi-search-heart",
+         "content" => [
+            "Many call girl suppliers exist &mdash; learn how to recognize the best Masab Tank escort service.",
+         ],
+         "list" => [
+            "Choose a Masab Tank agency with verified call girls and real photos.",
+            "Ensure full coverage &mdash; Tolichowki, Mehdipatnam, Banjara border, Asif Nagar.",
+            "Check photos, age, category and rating before hiring.",
+            "Genuine Masab Tank agencies share direct WhatsApp numbers.",
+            "Look for on-demand &amp; instant 24/7 booking.",
+         ]],
+        ["title" => "Independent Masab Tank Call Girls vs Agency Escorts",
+         "icon" => "bi-person-heart",
+         "content" => [
+            "Searching for independent escort service in Masab Tank? We provide both &mdash; independent call girls and agency-based VIP companions.",
+            "Contact us online or by phone for the best Masab Tank call girls for sex, companionship, roleplay or full-night sessions in central hotels.",
+         ]],
+        ["title" => "Cheap &amp; Affordable Masab Tank Escort Service",
+         "icon" => "bi-cash-coin",
+         "content" => [
+            "Want a Masab Tank call girl on a budget? Choose a cheap but quality option in Masab Tank.",
+            "We offer cheap Masab Tank escort service without compromising on standard. Save money, still book top-notch Masab Tank call girls.",
+         ]],
+        ["title" => "Why Choose Our Masab Tank Call Girl Service",
+         "icon" => "bi-stars",
+         "content" => [
+            "Our Masab Tank agency helps central-Hyderabad men release suppressed emotions in a cosmopolitan, well-connected environment. The Masab Tank escort experience is comfortable and erotic.",
+            "Our Masab Tank call girls clear emotional, physical and psychological burden right at central Hyderabad&rsquo;s busiest crossroads.",
+         ]],
+        ["title" => "VIP, Hi-Profile &amp; College Call Girls in Masab Tank",
+         "icon" => "bi-crown-fill",
+         "content" => [
+            "Want a private party companion or a discreet erotic evening at your central hotel? VIP escorts in Masab Tank are ready to book online with instant booking.",
+            "Our Masab Tank catalogue features housewives, MILFs, college girls, airhostesses, models, actresses, Russian beauties and Insta influencers.",
+         ]],
+        ["title" => "How to Contact Female Escorts in Masab Tank",
+         "icon" => "bi-telephone-plus",
+         "content" => [
+            "Demand for female escorts in Masab Tank is rising. Here is how to contact a Masab Tank call girl.",
+         ],
+         "list" => [
+            "Visit our Masab Tank call girls profile page above.",
+            "Browse profiles of verified Masab Tank call girls.",
+            "Choose one or multiple based on your needs.",
+            "Book for incall or outcall in central hotels.",
+            "Pay through our secured payment options.",
+         ]],
+        ["title" => "24/7 On-Demand Masab Tank Escort Booking",
+         "icon" => "bi-clock-history",
+         "content" => [
+            "Our Masab Tank escort agency offers 24/7 booking. Book call girls anytime &mdash; midnight, early morning, weekend, weekday.",
+            "Same-day fast connect with Masab Tank call girls is our signature.",
+         ]],
+        ["title" => "Genuine Companionship &amp; GFE in Masab Tank",
+         "icon" => "bi-suit-heart-fill",
+         "content" => [
+            "Many men want emotional connection alongside sex. Book a Masab Tank call girl to play your girlfriend for emotional satisfaction.",
+            "Our Masab Tank escorts know roleplay and GFE. Book for companionship, romantic dates or wild adult enjoyment.",
+         ]],
+        ["title" => "The Ultimate Masab Tank Erotic Experience",
+         "icon" => "bi-rocket-takeoff-fill",
+         "content" => [
+            "Want to enter the ultimate state of fun? Book Masab Tank call girls or escort girls with us &mdash; cosmopolitan central Hyderabad at its best.",
+            "Our Masab Tank call girls help unveil a world of ultimate erotic experience. Book your Masab Tank dream girl tonight.",
+         ]],
     ],
+
+    'guide_intro' => [
+        "Different categories of Masab Tank call girls exist for booking hot girls for real fun. Search for an escort service in Masab Tank that supplies hot call girls for sex.",
+        "Doubts about booking a Masab Tank escort online? Follow the guide below to book call girls for sex in Masab Tank.",
+    ],
+    'guide_steps' => default_guide_steps('Masab Tank'),
+    'gallery'         => default_area_gallery(),
+    'content_banners' => default_area_banners(),
 ];
 
-render_area_page($page);
+render_swapna_page($page);
