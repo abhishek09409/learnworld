@@ -11,20 +11,35 @@
  * render_swapna_page($page).
  */
 
+/**
+ * Image path resolution for area pages inside /locations/ subfolder.
+ *
+ * File system check uses __DIR__ which points to /locations/, so we go
+ * up one level (../) to reach the project root where images/ lives.
+ *
+ * Returned URL is also relative ("../images/...") so the page works
+ * whether the site is hosted at the document root OR inside a sub-folder
+ * (like example.com/learnworld/).
+ *
+ * Both .jpg / .jpeg / .png / .webp variants are auto-detected.
+ */
 if (!function_exists('get_profile_image')) {
     function get_profile_image($girl, $image_dir) {
         $base       = pathinfo($girl['image'], PATHINFO_FILENAME);
-        $extensions = ['jpg', 'jpeg', 'png', 'webp'];
+        $extensions = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG', 'WEBP'];
 
+        // 1. Try exact filename first
         if (file_exists(__DIR__ . '/../' . $image_dir . $girl['image'])) {
-            return '/' . $image_dir . $girl['image'];
+            return '../' . $image_dir . $girl['image'];
         }
+        // 2. Try other extensions with same base name
         foreach ($extensions as $ext) {
-            $try = $image_dir . $base . '.' . $ext;
-            if (file_exists(__DIR__ . '/../' . $try)) {
-                return '/' . $try;
+            $candidate = $image_dir . $base . '.' . $ext;
+            if (file_exists(__DIR__ . '/../' . $candidate)) {
+                return '../' . $candidate;
             }
         }
+        // 3. Fallback to themed placeholder
         return "https://placehold.co/600x800/{$girl['color']}/{$girl['text']}?text="
              . urlencode($girl['name']) . "&font=playfair";
     }
@@ -33,15 +48,15 @@ if (!function_exists('get_profile_image')) {
 if (!function_exists('get_banner_image')) {
     function get_banner_image($banner, $banner_dir) {
         $base       = pathinfo($banner['file'], PATHINFO_FILENAME);
-        $extensions = ['jpg', 'jpeg', 'png', 'webp'];
+        $extensions = ['jpg', 'jpeg', 'png', 'webp', 'JPG', 'JPEG', 'PNG', 'WEBP'];
 
         if (file_exists(__DIR__ . '/../' . $banner_dir . $banner['file'])) {
-            return '/' . $banner_dir . $banner['file'];
+            return '../' . $banner_dir . $banner['file'];
         }
         foreach ($extensions as $ext) {
-            $try = $banner_dir . $base . '.' . $ext;
-            if (file_exists(__DIR__ . '/../' . $try)) {
-                return '/' . $try;
+            $candidate = $banner_dir . $base . '.' . $ext;
+            if (file_exists(__DIR__ . '/../' . $candidate)) {
+                return '../' . $candidate;
             }
         }
         return "https://placehold.co/1200x500/{$banner['color']}/{$banner['text']}?text="

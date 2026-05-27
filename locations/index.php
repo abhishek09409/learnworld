@@ -160,7 +160,17 @@ footer .brand-logo{font-size:2rem}
         <h2 class="section-title">12 Premium Locations</h2>
         <div class="row g-4">
             <?php foreach ($areas as $a):
-                $img = "https://placehold.co/600x500/{$a['color']}/{$a['text']}?text=" . urlencode($a['name']) . "&font=playfair";
+                // Try real uploaded image first, fall back to themed placeholder
+                $img_dir = 'images/girls/';
+                $img     = "https://placehold.co/600x500/{$a['color']}/{$a['text']}?text=" . urlencode($a['name']) . "&font=playfair";
+                $base    = pathinfo($a['image'], PATHINFO_FILENAME);
+                foreach (['jpg','jpeg','png','webp','JPG','JPEG','PNG','WEBP'] as $ext) {
+                    $candidate = $img_dir . $base . '.' . $ext;
+                    if (file_exists(__DIR__ . '/../' . $candidate)) {
+                        $img = '../' . $candidate;
+                        break;
+                    }
+                }
             ?>
                 <div class="col-md-6 col-lg-4">
                     <a href="/locations/<?php echo $a['slug']; ?>.php" class="area-card">
