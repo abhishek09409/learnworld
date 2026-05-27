@@ -623,7 +623,7 @@ function render_swapna_page(array $p) {
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-premium sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="/locations/">
+        <a class="navbar-brand" href="/locations/all-areas.php">
             <span class="brand-logo"><?php echo htmlspecialchars($brand); ?></span>
             <span class="brand-tag">PREMIUM <?php echo strtoupper($area); ?> ESCORTS</span>
         </a>
@@ -637,7 +637,7 @@ function render_swapna_page(array $p) {
                 <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="#guide">Booking Guide</a></li>
-                <li class="nav-item"><a class="nav-link" href="/locations/">Other Areas</a></li>
+                <li class="nav-item"><a class="nav-link" href="/locations/all-areas.php">Other Areas</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -876,7 +876,7 @@ function render_swapna_page(array $p) {
 <!-- FOOTER -->
 <footer id="contact">
     <div class="container">
-        <a href="/locations/" class="brand-logo"><?php echo strtoupper(htmlspecialchars($brand)); ?></a>
+        <a href="/locations/all-areas.php" class="brand-logo"><?php echo strtoupper(htmlspecialchars($brand)); ?></a>
         <p class="brand-tag">~ Genuine <?php echo htmlspecialchars($area); ?> Escort Agency ~</p>
         <p>Elite Call Girls &middot; High-Profile Escorts &middot; Discreet Service &middot; 24/7 Booking</p>
         <div class="footer-links">
@@ -885,7 +885,7 @@ function render_swapna_page(array $p) {
             <a href="#gallery">Gallery</a>
             <a href="#services">Services</a>
             <a href="#guide">Guide</a>
-            <a href="/locations/">Other Areas</a>
+            <a href="/locations/all-areas.php">Other Areas</a>
             <a href="tel:<?php echo $contact_no; ?>">Call</a>
             <a href="https://wa.me/<?php echo preg_replace('/\D/','',$whatsapp_no); ?>">WhatsApp</a>
         </div>

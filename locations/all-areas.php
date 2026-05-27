@@ -28,7 +28,7 @@ $whatsapp_no = '+91 00000 00000';
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hyderabad Escort Service Areas | All 12 Premium Locations</title>
 <meta name="description" content="Browse premium verified call girls across all 12 major Hyderabad areas &mdash; Banjara Hills, Jubilee Hills, Hitech City, Gachibowli and more. 24/7 booking.">
-<link rel="canonical" href="/locations/">
+<link rel="canonical" href="/locations/all-areas.php">
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
